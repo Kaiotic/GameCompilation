@@ -74,6 +74,7 @@
     <ClInclude Include="ErrorHandler.h" />
     <ClInclude Include="stdheader.h" />
     <ClInclude Include="Utility.h" />
+    <ClInclude Include="Vec2df32.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
