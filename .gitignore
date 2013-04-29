@@ -62,8 +62,6 @@ local.properties
 *.vspscc
 .builds
 *.dotCover
-/bin
-/debug
 
 ## TODO: If you have NuGet Package Restore enabled, uncomment this
 #packages/
