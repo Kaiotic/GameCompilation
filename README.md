@@ -3,7 +3,10 @@ Miscellaneous
 <h4>Utility.h</h4>
 
 Utility.h has an "enum boolean { ... }" that defines TRUE and FALSE. <br/>
-If you need a boolean somewhere, include Utility.h and use TRUE / FALSE.
+If you need a boolean somewhere, include Utility.h and use TRUE / FALSE. <br/>
+Utility also contains a method to initialize a game board (init(...)) and a method to cleanUp a game board (cleanUp(...)). <br/>
+init() initializes all X/Y coordinates and its value.
+cleanUp() frees the memory.
 
 <h4>Field.h</h4>
 
