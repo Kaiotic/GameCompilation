@@ -1,3 +1,24 @@
+Miscellaneous
+=============
+<h4>Utility.h</h4>
+
+Utility.h has an "enum boolean { ... }" that defines TRUE and FALSE. <br/>
+If you need a boolean somewhere, include Utility.h and use TRUE / FALSE.
+
+<h4>Field.h</h4>
+
+Field.h has a typedef "Field_t". <br/>
+This holds X/Y coordinates and a character value. <br/>
+This will be used to represent the game board. <br/>
+
+For example:
+
+    Player1 = X, Player2 = O
+    Field.Position = [2, 5]
+    Field.Value = 'X'
+would mean, that the Field on 2,5 is tagged by Player1.
+
+
 GameCompilation
 ===============
 
