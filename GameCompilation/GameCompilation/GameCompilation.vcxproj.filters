@@ -50,28 +50,28 @@
     <ClInclude Include="ErrorHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Field.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Utility.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Vec2df32.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Field.h">
+    <ClInclude Include="Bridges.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Application.h">
+    <ClInclude Include="Checkers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ConnectFour.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Reversi.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Bridges.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Checkers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
