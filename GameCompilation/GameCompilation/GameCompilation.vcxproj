@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
+    <ClInclude Include="Basic.h" />
     <ClInclude Include="Bridges.h" />
     <ClInclude Include="Checkers.h" />
     <ClInclude Include="ConnectFour.h" />

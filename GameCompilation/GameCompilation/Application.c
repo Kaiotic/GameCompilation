@@ -32,9 +32,10 @@ int startApplication(void)
 		break;
 	case 'x':
 	case 'X':
-	default:
 		// quit application
 		return FALSE;
+	default:
+		break;
 	}
 
 	// everything went well

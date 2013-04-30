@@ -1,8 +1,5 @@
 #include "Utility.h"
-#include "stdheader.h"
-#include <string.h>
 #include <conio.h>
-
 
 /*****************************************************************************
 void getUserInput(const char* _sFormat, void* _vInput, const char* _sInputMsg)
@@ -81,4 +78,62 @@ char* getMaskedPassword(const char* _sInputMsg)
 	sPassword[++iCount] = '\0';
 
 	return sPassword;
+}
+
+/*****************************************************************************
+int initGameBoard(Field_t* _Board, size_t iRow, size_t iCol)
+Description :
+	Initializes the GameBoard.
+Parameters : 
+	Field_t* _Board: The board to initialize.
+	size_t _iRow: The number of rows.
+	size_t _iCol: The number of columns.
+Returns :
+	int: TRUE if everything went well, FALSE if not.
+*****************************************************************************/
+int initGameBoard(Field_t* _Board, size_t _iRow, size_t _iCol)
+{
+	size_t i = 0; // rows
+	size_t j = 0; // cols
+
+	Field_t* ptrFirst;
+
+	// allocate memory
+	_Board = (Field_t*)calloc(_iRow * _iCol, sizeof(Field_t));
+	if(!_Board)
+	{
+		// initialization error
+		return FALSE;
+	}
+
+	// remember first element
+	ptrFirst = _Board;
+
+	for(i = 0; i < _iRow; ++i)
+	{
+		for(j = 0; j < _iCol; ++j)
+		{
+			// initialize board
+			_Board->Position.iX = i;
+			_Board->Position.iY = j;
+			_Board->Value = ' ';
+
+			// move pointer
+			++_Board;
+		}
+	}
+
+	// reset pointer to first element
+	_Board = ptrFirst;
+
+	// everything went well
+	return TRUE;
+}
+
+void cleanUpGameBoard(Field_t* _Board)
+{
+	if(_Board)
+	{
+		free(_Board);
+	}
 }

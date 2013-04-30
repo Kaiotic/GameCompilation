@@ -1,12 +1,19 @@
 #include "ConnectFour.h"
-#include <stdlib.h>
-#include <stdio.h>
+#include "stdheader.h"
+
+const size_t cRows = 6;
+const size_t cCols = 7;
+Field_t* g_Board;
 
 void startConnectFour(void)
 {
+	initGameBoard(g_Board, cRows, cCols);
+
 	system("CLS");
 	printf("\n\t### CONNECT FOUR ###");
 
 	printf("\n\n");
 	system("PAUSE");
+
+	cleanUpGameBoard(g_Board);
 }
