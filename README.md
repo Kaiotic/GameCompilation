@@ -1,7 +1,10 @@
 GameCompilation
 ===============
 
-BS Projekt
+- <a href="http://de.wikipedia.org/wiki/Dame_%28Spiel%29#Checkers">Checkers</a>
+- <a href="http://de.wikipedia.org/wiki/Reversi">Reversi</a>
+- <a href="http://de.wikipedia.org/wiki/4_gewinnt">Connect Four</a>
+- <a>Bridges</a>
 
 
 ## Style Guidelines ##
