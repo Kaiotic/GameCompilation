@@ -69,6 +69,7 @@
     <ClCompile Include="ErrorHandler.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="Utility.c" />
+    <ClCompile Include="Vec2df32.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ErrorHandler.h" />
