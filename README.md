@@ -23,9 +23,20 @@ GameCompilation
 
 - <b>Structs are declared as typedef and suffixed with "_t"</b>
   
-    <pre>typedef struct Person { ... } Person_t
-    Person_t* person = (Person_t*)malloc(...)</pre>
+    <pre>
+    typedef struct Person { ... } Person_t
+    Person_t* person = (Person_t*)malloc(...)
+    </pre>
 
 - <b>Pointers are declared as follows</b>
     
     <pre>int* x = &myInt</pre>
+
+- <b>Initialize variables in the declaration</b>
+
+    <pre>
+    int i = 0;
+    char c = '\0';
+    float f = 0.0;
+    double d = 0.0;
+    </pre>
