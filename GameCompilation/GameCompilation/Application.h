@@ -3,6 +3,8 @@
 
 #include "stdheader.h"
 
-int startApplication();
+int startApplication(void);
+
+void printMenu(void);
 
 #endif //APPLICATION_H_INCLUDED

@@ -3,6 +3,7 @@
 #include <string.h>
 #include <conio.h>
 
+
 /*****************************************************************************
 void getUserInput(const char* _sFormat, void* _vInput, const char* _sInputMsg)
 Description :
@@ -11,9 +12,10 @@ Parameters :
 	const char* _sFormat: The format of the input. (e.g. "%s")
 	void* _vInput: The variable to write the input to.
 	const char* _sInputMsg: The message to prompt the user input.
+	const char* _sError: The error message to display on invalid input.
 Returns : -
 *****************************************************************************/
-void getUserInput(const char* _sFormat, void* _vInput, const char* _sInputMsg)
+void getUserInput(const char* _sFormat, void* _vInput, const char* _sInputMsg, const char* _sError)
 {
 	int iErr = 1;
 
@@ -21,7 +23,7 @@ void getUserInput(const char* _sFormat, void* _vInput, const char* _sInputMsg)
 	{
 		if(iErr != 1)
 		{
-			printf("Error. Please try again.");
+			printf("%s", _sError);
 		}
 
 		printf("\n%s", _sInputMsg);

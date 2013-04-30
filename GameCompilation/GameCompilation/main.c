@@ -6,10 +6,8 @@ int main()
 {
 	// LogIn / Register
 
+	// loop until user quits manually
 	while(startApplication());
-
-	fflush(stdin);
-	system("PAUSE");
 
 	return EXIT_SUCCESS;
 }

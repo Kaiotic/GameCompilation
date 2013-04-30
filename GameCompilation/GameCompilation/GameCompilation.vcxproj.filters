@@ -30,6 +30,18 @@
     <ClCompile Include="Application.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ConnectFour.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Reversi.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bridges.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Checkers.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdheader.h">
@@ -48,6 +60,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectFour.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Reversi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bridges.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Checkers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
