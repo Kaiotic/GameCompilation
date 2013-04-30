@@ -108,6 +108,6 @@ Vec2df32_t crossProduct(const Vec2df32_t _First)
 *****************************************************************************/
 Vec2df32_t crossProduct(const Vec2df32_t _First)
 {
-	Vec2df32_t vec = { -(_First.iY), _First.iX };
+	Vec2df32_t vec = { _First.iY, -_First.iX };
 	return vec;
 }
