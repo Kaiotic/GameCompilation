@@ -40,3 +40,13 @@ GameCompilation
     float f = 0.0;
     double d = 0.0;
     </pre>
+    
+- <b>Header Guard (for <em>every</em> header file, replace HEADERNAME with actual name)</b>
+
+    <pre>
+    #ifndef HEADERNAME_H_INCLUDED
+    #define HEADERNAME_H_INCLUDED
+      ... code ...
+    #endif //HEADERNAME_H_INCLUDED
+    </pre>
+    
