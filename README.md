@@ -71,3 +71,6 @@ GameCompilation
     #endif //HEADERNAME_H_INCLUDED
     </pre>
     
+- <b>Global variables are prefixed with "g_"</b>
+
+    <pre>Field_t* g_Board;</pre>
