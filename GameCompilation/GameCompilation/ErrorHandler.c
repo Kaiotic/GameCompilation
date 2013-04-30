@@ -4,7 +4,7 @@
 /*****************************************************************************
 void log(const char* _sError)
     Description :
-	Logs error messages to error.txt.
+		Logs error messages to error.txt.
     Parameters  : 
     	const char* _sError: The error message to log.
     Returns     : -
