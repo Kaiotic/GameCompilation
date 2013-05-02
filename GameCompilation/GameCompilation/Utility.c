@@ -51,7 +51,7 @@ char* getMaskedPassword(const char* _sInputMsg)
 	printf("%s", _sInputMsg);
 
 	// loop until Enter is pressed or 19 (+ "\0") characters have been entered
-	while((cChar = _getch()) != '\r' || iCount >= 19)
+	while((cChar = _getch()) != '\r' && iCount <= 19)
 	{
 		// if cChar is not Backspace
 		if(cChar != '\b')

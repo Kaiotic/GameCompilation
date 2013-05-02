@@ -1,6 +1,7 @@
 #include "LoginRegister.h"
 #include "Basic.h"
 #include "Utility.h"
+#include "Application.h"
 #include <string.h>
 
 /*****************************************************************************
@@ -14,9 +15,9 @@ int showLogin(void)
 int showLogin(void)
 {
 	// 20 characters for Username and Password
-	char* sUsername = (char*)calloc(20, sizeof(char));
-	char* sPassword = (char*)calloc(20, sizeof(char));
-	
+	char* sUsername = (char*)calloc(20, sizeof(sUsername));
+	char* sPassword = (char*)calloc(20, sizeof(sPassword));
+
 	// to catch errors
 	static int iErr = 0;
 
@@ -53,9 +54,9 @@ int showRegister(void)
 int showRegister(void)
 {
 	// 20 characters for Username and Password
-	char* sUsername = (char*)calloc(20, sizeof(char));
-	char* sPassword = (char*)calloc(20, sizeof(char));
-	char* sPass = (char*)calloc(20, sizeof(char));
+	char* sUsername = (char*)calloc(20, sizeof(sUsername));
+	char* sPassword = (char*)calloc(20, sizeof(sPassword));
+	char* sPass = (char*)calloc(20, sizeof(sPass));
 	
 	// to catch errors
 	static int iErr = 0;
