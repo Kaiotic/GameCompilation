@@ -2,7 +2,7 @@
 #include "stdheader.h"
 
 const size_t g_CheckersFields = 8;
-Field_t* g_Board;
+Field_t* g_CheckersBoard;
 
 /*****************************************************************************
 void startCheckers(void)
@@ -14,25 +14,44 @@ void startCheckers(void)
 void startCheckers(void)
 {
 	const size_t iBoardSize = g_CheckersFields * g_CheckersFields;
+	Vec2df32_t vOffset = { 2, 2 };
 
 	// allocate memory
-	g_Board = (Field_t*)calloc(iBoardSize, sizeof(Field_t));
-	if(!g_Board)
+	g_CheckersBoard = (Field_t*)calloc(iBoardSize, sizeof(Field_t));
+	if(!g_CheckersBoard)
 	{
 		// memory could not be allocated
 		return;
 	}
 
 	// initialize the board
-	initGameBoard(g_Board, g_CheckersFields, g_CheckersFields);
+	initGameBoard(g_CheckersBoard, vOffset, g_CheckersFields, g_CheckersFields);
 	
-	system("CLS");
-	
-	printGameBoard(g_Board, iBoardSize);
-
-	printf("\n\n");
-	system("PAUSE");
+	// game loop
+	while(updateCheckers(iBoardSize));
 
 	// free the boards memory
-	cleanUpGameBoard(g_Board);
+	cleanUpGameBoard(g_CheckersBoard);
+}
+
+/*****************************************************************************
+int updateCheckers(size_t _iBoardSize)
+    Description :
+		Updates and prints the GameBoard.
+    Parameters  : 
+		size_t _iBoardSize: The size of the board.
+    Returns     : 
+		TRUE, if everything went well. FALSE, if not.
+*****************************************************************************/
+int updateCheckers(size_t _iBoardSize)
+{
+	/*
+		Game Moves
+	*/
+
+	getchar(); // remove this line later
+
+	printGameBoard(g_CheckersBoard, _iBoardSize);
+
+	return TRUE;
 }

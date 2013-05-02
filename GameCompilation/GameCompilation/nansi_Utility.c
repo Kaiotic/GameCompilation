@@ -16,6 +16,8 @@ void printGameBoard(Field_t* _Board, size_t _iSize)
 	COORD pos; // console coordinates
 	HANDLE hOutput = GetStdHandle(STD_OUTPUT_HANDLE); // console handle
 
+	system("CLS");
+
 	for(i = 0; i < _iSize; ++i)
 	{
 		// set coordinates

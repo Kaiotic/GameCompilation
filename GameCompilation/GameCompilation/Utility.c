@@ -87,19 +87,17 @@ int initGameBoard(Field_t* _Board, size_t _iRow, size_t _iCol)
 		Initializes the GameBoard.
 	Parameters : 
 		Field_t* _Board: The board to initialize.
+		Vec2df32_t _Offset: The positional offset of the board.
 		size_t _iRow: The number of rows.
 		size_t _iCol: The number of columns.
 	Returns :
 		int: TRUE if everything went well, FALSE if not.
 *****************************************************************************/
-int initGameBoard(Field_t* _Board, size_t _iRows, size_t _iCols)
+int initGameBoard(Field_t* _Board, Vec2df32_t _Offset, size_t _iRows, size_t _iCols)
 {
 	// rows and columns
 	size_t i = 0; 
 	size_t j = 0; 
-
-	// positional offset
-	Vec2df32_t vOffset = { 2, 2 };
 
 	// remember first element
 	Field_t* ptrFirst = _Board;
@@ -109,8 +107,8 @@ int initGameBoard(Field_t* _Board, size_t _iRows, size_t _iCols)
 		for(j = 0; j < _iCols; ++j)
 		{
 			// initialize board with offset
-			_Board->Position.iX = (float)(i + 5) * vOffset.iX;
-			_Board->Position.iY = (float)j * vOffset.iY;
+			_Board->Position.iX = (float)(i + 5) * _Offset.iX;
+			_Board->Position.iY = (float)j * _Offset.iY;
 			_Board->Value = 'x';
 
 			// move pointer
