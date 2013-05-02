@@ -27,5 +27,6 @@ enum TextColor
 
 void printGameBoard(Field_t* _Board, size_t _iSize);
 void setConsoleTextColor(int _iColor);
+void setConsoleBackgroundColor(int _iColor);
 
 #endif //NANSI_UTILITY_H_INCLUDED
