@@ -42,6 +42,9 @@
     <ClCompile Include="Checkers.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LoginRegister.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdheader.h">
@@ -75,6 +78,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Basic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginRegister.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
