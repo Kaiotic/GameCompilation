@@ -1,5 +1,4 @@
 #include "nansi_Utility.h"
-#include <Windows.h>
 
 /*****************************************************************************
 void printGameBoard(Field_t* _Board, size_t _iSize)
@@ -26,11 +25,27 @@ void printGameBoard(Field_t* _Board, size_t _iSize)
 
 		// move cursor to position
 		SetConsoleCursorPosition(hOutput, pos);
-
+		
 		// print value
 		printf("%c", _Board->Value);
 
 		// move pointer
 		++_Board;
-	}	
+	}
+}
+
+/*****************************************************************************
+void setConsoleTextColor(int _iColor)
+	Description :
+		Changes the text color of the console.
+	Parameters : 
+		int _iColor: The color code to change to.
+	Returns : -
+*****************************************************************************/
+void setConsoleTextColor(int _iColor)
+{
+	HANDLE hOutput = GetStdHandle(STD_OUTPUT_HANDLE); // console handle
+
+	// change color
+	SetConsoleTextAttribute(hOutput, _iColor);
 }

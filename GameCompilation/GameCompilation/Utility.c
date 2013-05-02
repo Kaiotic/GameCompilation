@@ -65,6 +65,7 @@ char* getMaskedPassword(const char* _sInputMsg)
 			if(iCount > 0)
 			{
 				// remove last character from console
+				// move 1 character left, print space, move 1 character left again
 				printf("\b \b");
 
 				// terminate string after last character
@@ -136,6 +137,7 @@ void cleanUpGameBoard(Field_t* _Board)
 	if(_Board)
 	{
 		free(_Board);
+		_Board = NULL;
 	}
 }
 

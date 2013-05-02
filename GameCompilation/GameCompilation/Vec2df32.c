@@ -13,7 +13,7 @@ Vec2df32_t addVec(const Vec2df32_t _First, const Vec2df32_t _Second)
 *****************************************************************************/
 Vec2df32_t addVec(const Vec2df32_t _First, const Vec2df32_t _Second)
 {
-  Vec2df32_t vec = { _First.iX + _Second.iX, _First.iY + _Second.iY };
+	Vec2df32_t vec = { _First.iX + _Second.iX, _First.iY + _Second.iY };
 	return vec;
 }
 
