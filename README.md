@@ -1,3 +1,10 @@
+Error Logging
+============
+
+If there are unstable passages in the code, or you just need more help to debug, use the ErrorHandler.h's log(...) method. <br/>
+It will create a error.txt file (in the directory, where the *.exe is located) with timestamp and a given error message. <br/>
+Don't log everything as constant file access will be a huge performance issue at some point.
+
 Miscellaneous
 =============
 <h4>Utility.h</h4>
