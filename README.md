@@ -9,7 +9,7 @@ Miscellaneous
 =============
 <h4>Utility.h</h4>
 
-Utility.h has an "enum boolean { ... }" that defines TRUE and FALSE. <br/>
+Utility.h has an <a href="https://github.com/Tehlyria/GameCompilation/wiki/%5BEnum%5D-boolean">boolean</a>-enum that defines TRUE and FALSE. <br/>
 If you need a boolean somewhere, include Utility.h and use TRUE / FALSE. <br/>
 Utility also contains a method to initialize a game board (init(...)) and a method to cleanUp a game board (cleanUp(...)). <br/>
 init() initializes all X/Y coordinates and its value.
@@ -21,16 +21,9 @@ nansi_Utility.h contains utility methods that are not covered by the ANSI C stan
 
 <h4>Field.h</h4>
 
-Field.h has a typedef "Field_t". <br/>
+Field.h has a typedef <a href="https://github.com/Tehlyria/GameCompilation/wiki/%5BTypedef%5D-Field_t">Field_t</a>. <br/>
 This holds X/Y coordinates and a character value. <br/>
 This will be used to represent the game board. <br/>
-
-For example:
-
-    Player1 = X, Player2 = O
-    Field.Position = [2, 5]
-    Field.Value = 'X'
-would mean, that the Field on 2,5 is tagged by Player1.
 
 
 GameCompilation
