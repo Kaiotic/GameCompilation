@@ -3,6 +3,14 @@
 #include "Utility.h"
 #include <string.h>
 
+/*****************************************************************************
+int showLogin(void)
+    Description :
+		Shows the Login screen.
+    Parameters  : -
+    Returns     :
+		TRUE, if user was logged in successfully. FALSE, if not.
+*****************************************************************************/
 int showLogin(void)
 {
 	// 20 characters for Username and Password
@@ -34,6 +42,14 @@ int showLogin(void)
 	return TRUE;
 }
 
+/*****************************************************************************
+int showRegister(void)
+    Description :
+		Shows the Register screen.
+    Parameters  : -
+    Returns     :
+		TRUE, if user was registered successfully. FALSE, if not.
+*****************************************************************************/
 int showRegister(void)
 {
 	// 20 characters for Username and Password

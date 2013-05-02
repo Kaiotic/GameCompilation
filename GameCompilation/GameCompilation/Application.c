@@ -2,7 +2,7 @@
 #include "stdheader.h"
 
 /*****************************************************************************
-int startApplication()
+int startApplication(void)
     Description :
 		Starts the main application.
     Parameters  : -
@@ -42,6 +42,13 @@ int startApplication(void)
 	return TRUE;
 }
 
+/*****************************************************************************
+void printMenu(void)
+    Description :
+		Prints the Main Menu to the console.
+    Parameters  : -
+    Returns     : -
+*****************************************************************************/
 void printMenu(void)
 {
 	system("CLS");

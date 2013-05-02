@@ -4,6 +4,13 @@
 const size_t CheckersFields = 8;
 Field_t* g_Board;
 
+/*****************************************************************************
+void startCheckers(void)
+    Description :
+		Starts a game of Checkers.
+    Parameters  : -
+    Returns     : -
+*****************************************************************************/
 void startCheckers(void)
 {
 	initGameBoard(g_Board, CheckersFields, CheckersFields);

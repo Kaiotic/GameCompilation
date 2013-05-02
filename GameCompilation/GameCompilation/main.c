@@ -9,9 +9,12 @@ int main()
 {
 	int iChoice = 0;
 
+	// LogIn / Register Menu
 	showStartScreen();
+
 	do
 	{
+		// choose between LogIn and Register
 		getUserInput("%i", &iChoice, "\tChoose: ", "\n\tYour input is invalid. Please choose again.\n");
 	}
 	while(iChoice != 1 && iChoice != 2);
@@ -34,6 +37,13 @@ int main()
 	return EXIT_SUCCESS;
 }
 
+/*****************************************************************************
+void showStartScreen(void)
+    Description :
+		Prints the Start Screen to the Console.
+    Parameters  : -
+    Returns     : -
+*****************************************************************************/
 void showStartScreen(void)
 {
 	printf("\t### Game Compilation ###");

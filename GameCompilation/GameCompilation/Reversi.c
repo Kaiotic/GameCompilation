@@ -4,6 +4,13 @@
 const size_t ReversiFields = 8;
 Field_t* g_Board;
 
+/*****************************************************************************
+void startReversi(void)
+    Description :
+		Starts a game of Reversi.
+    Parameters  : -
+    Returns     : -
+*****************************************************************************/
 void startReversi(void)
 {
 	initGameBoard(g_Board, ReversiFields, ReversiFields);
