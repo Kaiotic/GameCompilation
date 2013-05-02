@@ -8,6 +8,10 @@ Utility also contains a method to initialize a game board (init(...)) and a meth
 init() initializes all X/Y coordinates and its value.
 cleanUp() frees the memory.
 
+<h4>nansi_Utility.h</h4>
+
+nansi_Utility.h contains utility methods that are not covered by the ANSI C standard. <br/>
+
 <h4>Field.h</h4>
 
 Field.h has a typedef "Field_t". <br/>
