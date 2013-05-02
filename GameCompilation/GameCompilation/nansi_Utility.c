@@ -13,7 +13,7 @@ void printGameBoard(Field_t* _Board, size_t _iSize)
 void printGameBoard(Field_t* _Board, size_t _iSize)
 {
 	size_t i = 0;
-	COORD pos; // x-y-coordinates
+	COORD pos; // console coordinates
 	HANDLE hOutput = GetStdHandle(STD_OUTPUT_HANDLE); // console handle
 
 	for(i = 0; i < _iSize; ++i)
