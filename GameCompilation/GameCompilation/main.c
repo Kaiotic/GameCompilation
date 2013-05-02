@@ -1,6 +1,5 @@
 #include "stdheader.h"
 #include "Application.h"
-#include "Utility.h"
 #include "LoginRegister.h"
 
 void showStartScreen(void);

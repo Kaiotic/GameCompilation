@@ -45,6 +45,9 @@
     <ClCompile Include="LoginRegister.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="nansi_Utility.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdheader.h">
@@ -81,6 +84,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LoginRegister.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nansi_Utility.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

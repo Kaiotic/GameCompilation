@@ -1,7 +1,7 @@
 #include "Bridges.h"
 #include "stdheader.h"
 
-const size_t BridgesFields = 17;
+const size_t g_BridgesFields = 17;
 Field_t* g_Board; 
 
 /*****************************************************************************
@@ -13,13 +13,26 @@ void startBridges(void)
 *****************************************************************************/
 void startBridges(void)
 {
-	initGameBoard(g_Board, BridgesFields, BridgesFields);
+	const size_t iBoardSize = g_BridgesFields * g_BridgesFields;
+
+	// allocate memory
+	g_Board = (Field_t*)calloc(iBoardSize, sizeof(Field_t));
+	if(!g_Board)
+	{
+		// memory could not be allocated
+		return;
+	}
+	
+	// initialize the board
+	initGameBoard(g_Board, g_BridgesFields, g_BridgesFields);
 
 	system("CLS");
-	printf("\n\t### BRIDGES ###");
+	
+	printGameBoard(g_Board, iBoardSize);
 
 	printf("\n\n");
 	system("PAUSE");
 
+	// free the boards memory
 	cleanUpGameBoard(g_Board);
 }

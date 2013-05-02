@@ -1,7 +1,7 @@
 #include "Checkers.h"
 #include "stdheader.h"
 
-const size_t CheckersFields = 8;
+const size_t g_CheckersFields = 8;
 Field_t* g_Board;
 
 /*****************************************************************************
@@ -13,12 +13,26 @@ void startCheckers(void)
 *****************************************************************************/
 void startCheckers(void)
 {
-	initGameBoard(g_Board, CheckersFields, CheckersFields);
+	const size_t iBoardSize = g_CheckersFields * g_CheckersFields;
+
+	// allocate memory
+	g_Board = (Field_t*)calloc(iBoardSize, sizeof(Field_t));
+	if(!g_Board)
+	{
+		// memory could not be allocated
+		return;
+	}
+
+	// initialize the board
+	initGameBoard(g_Board, g_CheckersFields, g_CheckersFields);
+	
 	system("CLS");
-	printf("\n\t### CHECKERS ###");
+	
+	printGameBoard(g_Board, iBoardSize);
 
 	printf("\n\n");
 	system("PAUSE");
 
+	// free the boards memory
 	cleanUpGameBoard(g_Board);
 }

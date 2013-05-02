@@ -1,16 +1,17 @@
 #include "Utility.h"
 #include <conio.h>
+#include <Windows.h>
 
 /*****************************************************************************
 void getUserInput(const char* _sFormat, void* _vInput, const char* _sInputMsg)
-Description :
-	Gets input from the user.
-Parameters : 
-	const char* _sFormat: The format of the input. (e.g. "%s")
-	void* _vInput: The variable to write the input to.
-	const char* _sInputMsg: The message to prompt the user input.
-	const char* _sError: The error message to display on invalid input.
-Returns : -
+	Description :
+		Gets input from the user.
+	Parameters : 
+		const char* _sFormat: The format of the input. (e.g. "%s")
+		void* _vInput: The variable to write the input to.
+		const char* _sInputMsg: The message to prompt the user input.
+		const char* _sError: The error message to display on invalid input.
+	Returns : -
 *****************************************************************************/
 void getUserInput(const char* _sFormat, void* _vInput, const char* _sInputMsg, const char* _sError)
 {
@@ -33,12 +34,12 @@ void getUserInput(const char* _sFormat, void* _vInput, const char* _sInputMsg, c
 
 /*****************************************************************************
 char* getMaskedPassword(const char* _sInputMsg)
-Description :
-	Gets the password from the user.
-Parameters : 
-	const char* _sInputMsg: The message to prompt the user input.
-Returns :
-	char*: The entered password.
+	Description :
+		Gets the password from the user.
+	Parameters : 
+		const char* _sInputMsg: The message to prompt the user input.
+	Returns :
+		char*: The entered password.
 *****************************************************************************/
 char* getMaskedPassword(const char* _sInputMsg)
 {
@@ -81,42 +82,36 @@ char* getMaskedPassword(const char* _sInputMsg)
 }
 
 /*****************************************************************************
-int initGameBoard(Field_t* _Board, size_t iRow, size_t iCol)
-Description :
-	Initializes the GameBoard.
-Parameters : 
-	Field_t* _Board: The board to initialize.
-	size_t _iRow: The number of rows.
-	size_t _iCol: The number of columns.
-Returns :
-	int: TRUE if everything went well, FALSE if not.
-*****************************************************************************/
 int initGameBoard(Field_t* _Board, size_t _iRow, size_t _iCol)
+	Description :
+		Initializes the GameBoard.
+	Parameters : 
+		Field_t* _Board: The board to initialize.
+		size_t _iRow: The number of rows.
+		size_t _iCol: The number of columns.
+	Returns :
+		int: TRUE if everything went well, FALSE if not.
+*****************************************************************************/
+int initGameBoard(Field_t* _Board, size_t _iRows, size_t _iCols)
 {
-	size_t i = 0; // rows
-	size_t j = 0; // cols
+	// rows and columns
+	size_t i = 0; 
+	size_t j = 0; 
 
-	Field_t* ptrFirst;
-
-	// allocate memory
-	_Board = (Field_t*)calloc(_iRow * _iCol, sizeof(Field_t));
-	if(!_Board)
-	{
-		// initialization error
-		return FALSE;
-	}
+	// positional offset
+	Vec2df32_t vOffset = { 2, 2 };
 
 	// remember first element
-	ptrFirst = _Board;
+	Field_t* ptrFirst = _Board;
 
-	for(i = 0; i < _iRow; ++i)
+	for(i = 0; i < _iRows; ++i)
 	{
-		for(j = 0; j < _iCol; ++j)
+		for(j = 0; j < _iCols; ++j)
 		{
-			// initialize board
-			_Board->Position.iX = i;
-			_Board->Position.iY = j;
-			_Board->Value = ' ';
+			// initialize board with offset
+			_Board->Position.iX = (float)(i + 5) * vOffset.iX;
+			_Board->Position.iY = (float)j * vOffset.iY;
+			_Board->Value = 'x';
 
 			// move pointer
 			++_Board;
@@ -130,6 +125,14 @@ int initGameBoard(Field_t* _Board, size_t _iRow, size_t _iCol)
 	return TRUE;
 }
 
+/*****************************************************************************
+void cleanUpGameBoard(Field_t* _Board)
+	Description :
+		Frees resources.
+	Parameters : 
+		Field_t* _Board: The board to clean up.
+	Returns : -
+*****************************************************************************/
 void cleanUpGameBoard(Field_t* _Board)
 {
 	if(_Board)
@@ -137,3 +140,4 @@ void cleanUpGameBoard(Field_t* _Board)
 		free(_Board);
 	}
 }
+
