@@ -1,13 +1,11 @@
-Error Logging
-============
+# Error Logging #
 
 If there are unstable passages in the code, or you just need more help to debug, use the ErrorHandler's log(...) method. <br/>
 It will create an error.txt file (in the directory, where the *.exe is located) with timestamp and a given error message. <br/>
 Don't log everything as constant file access will be a huge performance issue at some point.
 
-Miscellaneous
-=============
-<h4>Utility.h</h4>
+# Miscellaneous #
+### Utility.h ###
 
 Utility.h has an <a href="https://github.com/Tehlyria/GameCompilation/wiki/%5BEnum%5D-boolean">boolean</a>-enum that defines TRUE and FALSE. <br/>
 If you need a boolean somewhere, include Utility.h and use TRUE / FALSE. <br/>
@@ -15,27 +13,30 @@ Utility also contains a method to initialize a game board (init(...)) and a meth
 init() initializes all X/Y coordinates and its value.
 cleanUp() frees the memory.
 
-<h4>nansi_Utility.h</h4>
+### nansi_Utility.h ###
 
 nansi_Utility.h contains utility methods that are not covered by the ANSI C standard. <br/>
 
-<h4>Field.h</h4>
+### Field.h ###
 
 Field.h has a typedef <a href="https://github.com/Tehlyria/GameCompilation/wiki/%5BTypedef%5D-Field_t">Field_t</a>. <br/>
 This holds X/Y coordinates and a character value. <br/>
 This will be used to represent the game board. <br/>
 
 
-GameCompilation
-===============
+# GameCompilation #
 
 - <a href="http://de.wikipedia.org/wiki/Dame_%28Spiel%29#Checkers">Checkers</a>
+    - Kai (+ Jens ASAP)  
 - <a href="http://de.wikipedia.org/wiki/Reversi">Reversi</a>
+    - Niels (+ Daniel ASAP)
 - <a href="http://de.wikipedia.org/wiki/4_gewinnt">Connect Four</a>
-- <a>Bridges</a>
+    - Florian
+- Bridges
+    - Thomas + Genter
 
 
-## Style Guidelines ##
+# Style Guidelines #
 
 - <b>Function parameters are prefixed with an underscore</b>
   
