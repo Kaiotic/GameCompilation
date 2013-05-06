@@ -14,7 +14,7 @@ void startReversi(void)
 void startReversi(void)
 {
 	const size_t iBoardSize = g_ReversiFields * g_ReversiFields;
-	Vec2df32_t vOffset = { 2, 2 };
+	Vec2ds16_t vOffset = { 2, 2 };
 
 	// allocate memory
 	g_ReversiBoard = (Field_t*)calloc(iBoardSize, sizeof(Field_t));

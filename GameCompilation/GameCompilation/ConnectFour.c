@@ -15,7 +15,7 @@ void startConnectFour(void)
 void startConnectFour(void)
 {
 	const size_t iBoardSize = g_iRows * g_iCols;
-	Vec2df32_t vOffset = { 2, 2 };
+	Vec2ds16_t vOffset = { 2, 2 };
 
 	// allocate memory
 	g_ConnectFourBoard = (Field_t*)calloc(iBoardSize, sizeof(Field_t));

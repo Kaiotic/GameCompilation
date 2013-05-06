@@ -5,7 +5,7 @@
 
 typedef struct
 {
-	Vec2df32_t Position;
+	Vec2ds16_t Position;
 	char Value;
 } Field_t;
 

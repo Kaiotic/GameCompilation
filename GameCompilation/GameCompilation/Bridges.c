@@ -14,7 +14,7 @@ void startBridges(void)
 void startBridges(void)
 {
 	const size_t iBoardSize = g_BridgesFields * g_BridgesFields;
-	Vec2df32_t vOffset = { 1, 1 };
+	Vec2ds16_t vOffset = { 1, 1 };
 
 	// allocate memory
 	g_BridgesBoard = (Field_t*)calloc(iBoardSize, sizeof(Field_t));

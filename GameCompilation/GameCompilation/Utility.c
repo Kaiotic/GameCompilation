@@ -94,7 +94,7 @@ int initGameBoard(Field_t* _Board, size_t _iRow, size_t _iCol)
 	Returns :
 		int: TRUE if everything went well, FALSE if not.
 *****************************************************************************/
-int initGameBoard(Field_t* _Board, Vec2df32_t _Offset, size_t _iRows, size_t _iCols)
+int initGameBoard(Field_t* _Board, Vec2ds16_t _Offset, size_t _iRows, size_t _iCols)
 {
 	// rows and columns
 	size_t i = 0; 
@@ -108,8 +108,8 @@ int initGameBoard(Field_t* _Board, Vec2df32_t _Offset, size_t _iRows, size_t _iC
 		for(j = 0; j < _iCols; ++j)
 		{
 			// initialize board with offset
-			_Board->Position.iX = (float)(i + 5) * _Offset.iX;
-			_Board->Position.iY = (float)j * _Offset.iY;
+			_Board->Position.iX = (i + 5) * _Offset.iX;
+			_Board->Position.iY = j * _Offset.iY;
 			_Board->Value = 'x';
 
 			// move pointer

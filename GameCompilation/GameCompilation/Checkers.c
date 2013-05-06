@@ -14,7 +14,7 @@ void startCheckers(void)
 void startCheckers(void)
 {
 	const size_t iBoardSize = g_CheckersFields * g_CheckersFields;
-	Vec2df32_t vOffset = { 2, 2 };
+	Vec2ds16_t vOffset = { 2, 2 };
 
 	// allocate memory
 	g_CheckersBoard = (Field_t*)calloc(iBoardSize, sizeof(Field_t));
