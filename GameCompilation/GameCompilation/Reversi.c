@@ -25,7 +25,7 @@ void startReversi(void)
 	}	
 	
 	// initialize the board
-	initGameBoard(g_ReversiBoard, vOffset, g_ReversiFields, g_ReversiFields);
+	initGameBoard(g_ReversiBoard, g_ReversiFields, g_ReversiFields);
 	
 	// game loop
 	while(updateReversi(iBoardSize));
@@ -48,10 +48,12 @@ int updateReversi(size_t _iBoardSize)
 	/* 
 		Game Moves
 	*/
-	
+	static Vec2ds16_t offset = { 2, 2 };
+	static Vec2ds16_t lastSelected = { 0, 0 };
+
 	getchar(); // remove this line later
 
-	printGameBoard(g_ReversiBoard, _iBoardSize);
+	printGameBoard(g_ReversiBoard, &offset, &lastSelected, _iBoardSize);
 
 	return TRUE;
 }

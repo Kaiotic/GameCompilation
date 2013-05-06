@@ -7,7 +7,7 @@
 // Typedefs and Utility-Methods
 #include "Utility.h"
 #include "nansi_Utility.h"
-#include "Vec2df32.h"
+#include "Vec2ds16.h"
 #include "Field.h"
 
 // Games

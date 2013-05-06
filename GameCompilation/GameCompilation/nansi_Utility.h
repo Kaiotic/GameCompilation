@@ -25,7 +25,7 @@ enum TextColor
 	White = 15
 };
 
-void printGameBoard(Field_t* _Board, size_t _iSize);
+void printGameBoard(Field_t* _Board, Vec2ds16_t* _Offset, Vec2ds16_t* _CurSelected, size_t _iSize);
 void setConsoleTextColor(int _iColor);
 void setConsoleBackgroundColor(int _iColor);
 

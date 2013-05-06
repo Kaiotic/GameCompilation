@@ -26,7 +26,7 @@ void startConnectFour(void)
 	}
 
 	// initialize the board
-	initGameBoard(g_ConnectFourBoard, vOffset, g_iRows, g_iCols);
+	initGameBoard(g_ConnectFourBoard, g_iRows, g_iCols);
 	
 	// game loop
 	while(updateConnectFour(iBoardSize));
@@ -49,10 +49,12 @@ int updateConnectFour(size_t _iBoardSize)
 	/*
 		Game Moves
 	*/
+	static Vec2ds16_t offset = { 2, 2 };
+	static Vec2ds16_t lastSelected = { 0, 0 };
 
 	getchar(); // remove this line later
 
-	printGameBoard(g_ConnectFourBoard, _iBoardSize);
+	printGameBoard(g_ConnectFourBoard, &offset, &lastSelected, _iBoardSize);
 
 	return TRUE;
 }

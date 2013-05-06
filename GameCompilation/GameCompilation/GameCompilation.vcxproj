@@ -76,7 +76,7 @@
     <ClCompile Include="nansi_Utility.c" />
     <ClCompile Include="Reversi.c" />
     <ClCompile Include="Utility.c" />
-    <ClCompile Include="Vec2df32.c" />
+    <ClCompile Include="Vec2ds16.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
@@ -91,7 +91,7 @@
     <ClInclude Include="Reversi.h" />
     <ClInclude Include="stdheader.h" />
     <ClInclude Include="Utility.h" />
-    <ClInclude Include="Vec2df32.h" />
+    <ClInclude Include="Vec2ds16.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

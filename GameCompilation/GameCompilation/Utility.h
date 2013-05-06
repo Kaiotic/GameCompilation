@@ -13,7 +13,7 @@ enum boolean
 void getUserInput(const char* _sFormat, void* _vInput, const char* _sInputMsg, const char* _sError);
 char* getMaskedPassword(const char* _sInputMsg);
 
-int initGameBoard(Field_t* _Board, Vec2ds16_t _Offset, size_t _iRows, size_t _iCols);
+int initGameBoard(Field_t* _Board, size_t _iRows, size_t _iCols);
 void cleanUpGameBoard(Field_t* _Board);
 
 #endif //UTILITY_H_INCLUDED

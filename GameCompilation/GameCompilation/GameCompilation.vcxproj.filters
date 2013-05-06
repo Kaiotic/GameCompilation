@@ -24,9 +24,6 @@
     <ClCompile Include="Utility.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Vec2df32.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Application.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -48,6 +45,9 @@
     <ClCompile Include="nansi_Utility.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Vec2ds16.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdheader.h">
@@ -63,9 +63,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Utility.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Vec2df32.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Bridges.h">
@@ -87,6 +84,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="nansi_Utility.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vec2ds16.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

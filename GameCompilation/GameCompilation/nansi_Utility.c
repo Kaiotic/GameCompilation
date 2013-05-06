@@ -9,7 +9,7 @@ void printGameBoard(Field_t* _Board, size_t _iSize)
 		size_t _iSize: The size of the board.
 	Returns : -
 *****************************************************************************/
-void printGameBoard(Field_t* _Board, size_t _iSize)
+void printGameBoard(Field_t* _Board, Vec2ds16_t* _Offset, Vec2ds16_t* _CurSelected, size_t _iSize)
 {
 	size_t i = 0;
 	COORD pos; // console coordinates
@@ -19,9 +19,18 @@ void printGameBoard(Field_t* _Board, size_t _iSize)
 
 	for(i = 0; i < _iSize; ++i)
 	{
+		if(_Board->Position.iX == _CurSelected->iX && _Board->Position.iY == _CurSelected->iY) 
+		{
+			setConsoleTextColor(Red);
+		}
+		else 
+		{
+			setConsoleTextColor(White);
+		}
+
 		// set coordinates
-		pos.X = (short)_Board->Position.iX;
-		pos.Y = (short)_Board->Position.iY;
+		pos.X = (_Board->Position.iX + 5) * _Offset->iX;
+		pos.Y = _Board->Position.iY * _Offset->iY;
 
 		// move cursor to position
 		SetConsoleCursorPosition(hOutput, pos);

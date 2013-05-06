@@ -57,8 +57,7 @@ char* getMaskedPassword(const char* _sInputMsg)
 		if(cChar != '\b')
 		{
 			printf("*");
-			sPassword[iCount] = cChar;
-			++iCount;			
+			sPassword[iCount++] = cChar;		
 		}
 		else
 		{
@@ -69,8 +68,7 @@ char* getMaskedPassword(const char* _sInputMsg)
 				printf("\b \b");
 
 				// terminate string after last character
-				sPassword[iCount] = '\0';
-				--iCount;
+				sPassword[iCount--] = '\0';
 			}
 		}
 	}
@@ -88,37 +86,31 @@ int initGameBoard(Field_t* _Board, size_t _iRow, size_t _iCol)
 		Initializes the GameBoard.
 	Parameters : 
 		Field_t* _Board: The board to initialize.
-		Vec2df32_t _Offset: The positional offset of the board.
+		Vec2df32_t* _Offset: The positional offset of the board.
 		size_t _iRow: The number of rows.
 		size_t _iCol: The number of columns.
 	Returns :
 		int: TRUE if everything went well, FALSE if not.
 *****************************************************************************/
-int initGameBoard(Field_t* _Board, Vec2ds16_t _Offset, size_t _iRows, size_t _iCols)
+int initGameBoard(Field_t* _Board, size_t _iRows, size_t _iCols)
 {
 	// rows and columns
 	size_t i = 0; 
 	size_t j = 0; 
-
-	// remember first element
-	Field_t* ptrFirst = _Board;
 
 	for(i = 0; i < _iRows; ++i)
 	{
 		for(j = 0; j < _iCols; ++j)
 		{
 			// initialize board with offset
-			_Board->Position.iX = (i + 5) * _Offset.iX;
-			_Board->Position.iY = j * _Offset.iY;
+			_Board->Position.iX = i;
+			_Board->Position.iY = j;
 			_Board->Value = 'x';
 
 			// move pointer
 			++_Board;
 		}
 	}
-
-	// reset pointer to first element
-	_Board = ptrFirst;
 
 	// everything went well
 	return TRUE;

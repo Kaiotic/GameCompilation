@@ -25,7 +25,7 @@ void startCheckers(void)
 	}
 
 	// initialize the board
-	initGameBoard(g_CheckersBoard, vOffset, g_CheckersFields, g_CheckersFields);
+	initGameBoard(g_CheckersBoard, g_CheckersFields, g_CheckersFields);
 	
 	// game loop
 	while(updateCheckers(iBoardSize));
@@ -48,10 +48,11 @@ int updateCheckers(size_t _iBoardSize)
 	/*
 		Game Moves
 	*/
-
+	static Vec2ds16_t offset = { 2, 2 };
+	static Vec2ds16_t lastSelected = { 0, 0 };
 	getchar(); // remove this line later
 
-	printGameBoard(g_CheckersBoard, _iBoardSize);
+	printGameBoard(g_CheckersBoard, &offset, &lastSelected, _iBoardSize);
 
 	return TRUE;
 }

@@ -1,7 +1,7 @@
 #ifndef FIELD_H_INCLUDED
 #define FIELD_H_INCLUDED
 
-#include "Vec2df32.h"
+#include "Vec2ds16.h"
 
 typedef struct
 {
