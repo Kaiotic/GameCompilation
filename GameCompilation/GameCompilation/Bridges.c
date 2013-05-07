@@ -2,8 +2,9 @@
 #include "stdheader.h"
 #include <conio.h>
 
-const size_t g_BridgesFields = 17;
-Field_t* g_BridgesBoard; 
+const static size_t g_Fields = 17;
+static Field_t* g_Board;
+const static Vec2ds16_t g_Offset = { 2, 1 };
 
 /*****************************************************************************
 void startBridges(void)
@@ -14,24 +15,27 @@ void startBridges(void)
 *****************************************************************************/
 void startBridges(void)
 {
-	const size_t iBoardSize = g_BridgesFields * g_BridgesFields;
-
+	const size_t iBoardSize = g_Fields * g_Fields;
+	
 	// allocate memory
-	g_BridgesBoard = (Field_t*)calloc(iBoardSize, sizeof(Field_t));
-	if(!g_BridgesBoard)
+	g_Board = (Field_t*)calloc(iBoardSize, sizeof(Field_t));
+	if(!g_Board)
 	{
 		// memory could not be allocated
 		return;
 	}
 	
 	// initialize the board
-	initGameBoard(g_BridgesBoard, g_BridgesFields, g_BridgesFields);
+	initGameBoard(g_Board, g_Fields, g_Fields);
+
+	// print for the first time
+	printGameBoard(g_Board, &g_Offset, NULL, NULL, iBoardSize);
 
 	// game loop
 	while(updateBridges(iBoardSize));
 
 	// free the boards memory
-	cleanUpGameBoard(g_BridgesBoard);
+	cleanUpGameBoard(g_Board);
 }
 
 /*****************************************************************************
@@ -45,17 +49,18 @@ int updateBridges(size_t _iBoardSize)
 *****************************************************************************/
 int updateBridges(size_t _iBoardSize)
 {
-	/*
-		Game Moves
-	*/
-	static Vec2ds16_t offset = { 2, 1 }; // positional offset
 	static Vec2ds16_t cursorPosition = { 0, 0 }; // last cursor coordinates
+	static Vec2ds16_t selectedToken = { -1, -1 }; // the selected game token
+	
 	short iInput = 0;
 
 	iInput = getKeyCode();
 
 	switch(iInput)
 	{
+	case 13: // ENTER
+		selectedToken = cursorPosition;
+		break;
 	case 256 + 72: // ARROW UP
 		if(cursorPosition.iY > 0)
 		{
@@ -63,7 +68,7 @@ int updateBridges(size_t _iBoardSize)
 		}
 		break;
 	case 256 + 80: // ARROW DOWN
-		if((unsigned short)cursorPosition.iY < g_BridgesFields - 1)
+		if((unsigned short)cursorPosition.iY < g_Fields - 1)
 		{
 			++cursorPosition.iY;
 		}
@@ -75,14 +80,21 @@ int updateBridges(size_t _iBoardSize)
 		}
 		break;
 	case 256 + 77: // ARROW RIGHT
-		if((unsigned short)cursorPosition.iX < g_BridgesFields - 1)
+		if((unsigned short)cursorPosition.iX < g_Fields - 1)
 		{
 			++cursorPosition.iX;
 		}
 		break;
+	case 27: // ESCAPE
+		// set static variables to default
+		selectedToken.iX = selectedToken.iY = -1;
+		cursorPosition.iX = cursorPosition.iY = 0;
+
+		// break game loop
+		return FALSE;
 	}
 
-	printGameBoard(g_BridgesBoard, &offset, &cursorPosition, _iBoardSize);
+	printGameBoard(g_Board, &g_Offset, &cursorPosition, &selectedToken, _iBoardSize);
 
 	return TRUE;
 }
