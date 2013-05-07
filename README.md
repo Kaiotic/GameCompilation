@@ -1,3 +1,5 @@
+# Do *not* modify Code online #
+
 # Error Logging #
 
 If there are unstable passages in the code, or you just need more help to debug, use the ErrorHandler's log(...) method. <br/>
