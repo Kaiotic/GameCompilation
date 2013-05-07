@@ -48,11 +48,42 @@ int updateCheckers(size_t _iBoardSize)
 	/*
 		Game Moves
 	*/
-	static Vec2ds16_t offset = { 2, 2 };
-	static Vec2ds16_t lastSelected = { 0, 0 };
-	getchar(); // remove this line later
+	static Vec2ds16_t offset = { 2, 2 }; // positional offset
+	static Vec2ds16_t cursorPosition = { 0, 0 }; // last cursor coordinates
+	short iInput = 0;
 
-	printGameBoard(g_CheckersBoard, &offset, &lastSelected, _iBoardSize);
+	iInput = getKeyCode();
+
+	switch(iInput)
+	{
+	case 256 + 72: // ARROW UP
+		if(cursorPosition.iY > 0)
+		{
+			--cursorPosition.iY;
+		}
+		break;
+	case 256 + 80: // ARROW DOWN
+		if((unsigned short)cursorPosition.iY < g_CheckersFields - 1)
+		{
+			++cursorPosition.iY;
+		}
+		break;
+	case 256 + 75: // ARROW LEFT
+		if(cursorPosition.iX > 0)
+		{
+			--cursorPosition.iX;
+		}
+		break;
+	case 256 + 77: // ARROW RIGHT
+		if((unsigned short)cursorPosition.iX < g_CheckersFields - 1)
+		{
+			++cursorPosition.iX;
+		}
+		break;
+	}
+
+
+	printGameBoard(g_CheckersBoard, &offset, &cursorPosition, _iBoardSize);
 
 	return TRUE;
 }

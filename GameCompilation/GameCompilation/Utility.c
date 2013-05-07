@@ -81,6 +81,30 @@ char* getMaskedPassword(const char* _sInputMsg)
 }
 
 /*****************************************************************************
+int getKeyCode(void)
+	Description :
+		Gets the KeyCode of the pressed key.
+	Parameters : -
+	Returns :
+		int: The KeyCode of the pressed key.
+*****************************************************************************/
+int getKeyCode(void)
+{
+	int cInput = 0;
+	
+	fflush(stdin);
+	cInput = _getch();
+
+	if(cInput == 0 || cInput == 224) 
+	{
+		// for arrow keys
+		cInput = 256 + _getch();
+	}
+
+	return cInput;
+}
+
+/*****************************************************************************
 int initGameBoard(Field_t* _Board, size_t _iRow, size_t _iCol)
 	Description :
 		Initializes the GameBoard.

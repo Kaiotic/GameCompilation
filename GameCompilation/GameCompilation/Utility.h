@@ -16,4 +16,6 @@ char* getMaskedPassword(const char* _sInputMsg);
 int initGameBoard(Field_t* _Board, size_t _iRows, size_t _iCols);
 void cleanUpGameBoard(Field_t* _Board);
 
+int getKeyCode(void);
+
 #endif //UTILITY_H_INCLUDED

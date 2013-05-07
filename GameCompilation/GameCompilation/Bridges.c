@@ -1,5 +1,6 @@
 #include "Bridges.h"
 #include "stdheader.h"
+#include <conio.h>
 
 const size_t g_BridgesFields = 17;
 Field_t* g_BridgesBoard; 
@@ -26,7 +27,7 @@ void startBridges(void)
 	
 	// initialize the board
 	initGameBoard(g_BridgesBoard, g_BridgesFields, g_BridgesFields);
-	
+
 	// game loop
 	while(updateBridges(iBoardSize));
 
@@ -48,12 +49,41 @@ int updateBridges(size_t _iBoardSize)
 	/*
 		Game Moves
 	*/
-	static Vec2ds16_t offset = { 0, 0 };
-	static Vec2ds16_t lastPos = { 0, 0 };
+	static Vec2ds16_t offset = { 2, 1 }; // positional offset
+	static Vec2ds16_t cursorPosition = { 0, 0 }; // last cursor coordinates
+	short iInput = 0;
 
-	getchar(); // remove this line later
+	iInput = getKeyCode();
 
-	printGameBoard(g_BridgesBoard, &offset, &lastPos, _iBoardSize);
+	switch(iInput)
+	{
+	case 256 + 72: // ARROW UP
+		if(cursorPosition.iY > 0)
+		{
+			--cursorPosition.iY;
+		}
+		break;
+	case 256 + 80: // ARROW DOWN
+		if((unsigned short)cursorPosition.iY < g_BridgesFields - 1)
+		{
+			++cursorPosition.iY;
+		}
+		break;
+	case 256 + 75: // ARROW LEFT
+		if(cursorPosition.iX > 0)
+		{
+			--cursorPosition.iX;
+		}
+		break;
+	case 256 + 77: // ARROW RIGHT
+		if((unsigned short)cursorPosition.iX < g_BridgesFields - 1)
+		{
+			++cursorPosition.iX;
+		}
+		break;
+	}
+
+	printGameBoard(g_BridgesBoard, &offset, &cursorPosition, _iBoardSize);
 
 	return TRUE;
 }

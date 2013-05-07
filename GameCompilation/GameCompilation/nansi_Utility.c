@@ -19,12 +19,15 @@ void printGameBoard(Field_t* _Board, Vec2ds16_t* _Offset, Vec2ds16_t* _CurSelect
 
 	for(i = 0; i < _iSize; ++i)
 	{
+		// if the current position is the selected one
 		if(_Board->Position.iX == _CurSelected->iX && _Board->Position.iY == _CurSelected->iY) 
 		{
+			// color it red
 			setConsoleTextColor(Red);
 		}
 		else 
 		{
+			// default white
 			setConsoleTextColor(White);
 		}
 
