@@ -154,6 +154,20 @@ void printBoardLabels(size_t _iRows, size_t _iCols)
 	size_t cols = 0;
 	Field_t* boardLabels = (Field_t*)calloc(1, sizeof(Field_t));
 	char colLabel = 'A';
+
+	//Display Letters
+	printf("     ");
+	for(cols = 0 ; cols<_iCols ;cols++)
+	{
+		printf(" %c", colLabel+cols); /* Display the top line */
+	}
+	printf("\n");
+
+	//Display Numbers
+	for(rows = 0 ; rows<_iRows ; rows++)
+	{
+		printf("\n\n%2d|",rows + 1);
+	}
 }
 
 /*****************************************************************************

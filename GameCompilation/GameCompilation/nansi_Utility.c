@@ -15,7 +15,9 @@ void printGameBoard(Field_t* _Board, const Vec2ds16_t* _Offset, Vec2ds16_t* _Cur
 	COORD pos; // console coordinates
 	HANDLE hOutput = GetStdHandle(STD_OUTPUT_HANDLE); // console handle
 
-	system("CLS");
+	//system("CLS");
+
+	
 
 	for(i = 0; i < _iSize; ++i)
 	{
@@ -47,8 +49,8 @@ void printGameBoard(Field_t* _Board, const Vec2ds16_t* _Offset, Vec2ds16_t* _Cur
 		}
 
 		// set coordinates
-		pos.X = (_Board->Position.iX + 5) * _Offset->iX;
-		pos.Y = _Board->Position.iY * _Offset->iY;
+		pos.X = (_Board->Position.iX + 3) * _Offset->iX;
+		pos.Y = (_Board->Position.iY + 1.5) * _Offset->iY;
 
 		// move cursor to position
 		SetConsoleCursorPosition(hOutput, pos);

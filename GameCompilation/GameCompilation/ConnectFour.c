@@ -29,6 +29,8 @@ void startConnectFour(void)
 	initGameBoard(g_Board, g_iRows, g_iCols);
 	
 	// print for the first time
+	system("cls");
+	printBoardLabels(g_iCols,g_iRows);
 	printGameBoard(g_Board, &g_Offset, NULL, NULL, iBoardSize);
 
 	// game loop

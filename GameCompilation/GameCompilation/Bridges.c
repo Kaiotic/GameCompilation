@@ -4,7 +4,7 @@
 
 const static size_t g_Fields = 17;
 static Field_t* g_Board;
-const static Vec2ds16_t g_Offset = { 2, 1 };
+const static Vec2ds16_t g_Offset = { 2, 2 };
 
 /*****************************************************************************
 void startBridges(void)
@@ -29,6 +29,8 @@ void startBridges(void)
 	initGameBoard(g_Board, g_Fields, g_Fields);
 
 	// print for the first time
+	system("cls");
+	printBoardLabels(g_Fields,g_Fields);
 	printGameBoard(g_Board, &g_Offset, NULL, NULL, iBoardSize);
 
 	// game loop

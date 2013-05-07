@@ -24,10 +24,12 @@ void startReversi(void)
 		return;
 	}	
 	
-	// initialize the board
+	// initialize the board and labels
 	initGameBoard(g_Board, g_Fields, g_Fields);
 	
 	// print for the first time
+	system("cls");
+	printBoardLabels(g_Fields,g_Fields);
 	printGameBoard(g_Board, &g_Offset, NULL, NULL, iBoardSize);
 
 	// game loop
