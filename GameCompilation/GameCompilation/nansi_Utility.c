@@ -9,7 +9,7 @@ void printGameBoard(Field_t* _Board, size_t _iSize)
 		size_t _iSize: The size of the board.
 	Returns : -
 *****************************************************************************/
-void printGameBoard(Field_t* _Board, const Vec2ds16_t* _Offset, Vec2ds16_t* _CurSelected, Vec2ds16_t* _Selected, size_t _iSize)
+void printGameBoard(Field_t* _Board, const Vec2ds16_t* _Offset, Vec2ds16_t* _CursorPosition, Vec2ds16_t* _Selected, size_t _iSize)
 {
 	size_t i = 0;
 	COORD pos; // console coordinates
@@ -20,18 +20,18 @@ void printGameBoard(Field_t* _Board, const Vec2ds16_t* _Offset, Vec2ds16_t* _Cur
 	for(i = 0; i < _iSize; ++i)
 	{
 		// check if pointer is null
-		if(!_CurSelected)
+		if(!_CursorPosition)
 		{
 			// allocate memory
-			_CurSelected = (Vec2ds16_t*)malloc(sizeof(Vec2ds16_t));
+			_CursorPosition = (Vec2ds16_t*)malloc(sizeof(Vec2ds16_t));
 
 			// default to [0,0]
-			_CurSelected->iX = 0;
-			_CurSelected->iY = 0;
+			_CursorPosition->iX = 0;
+			_CursorPosition->iY = 0;
 		}
 
 		// if the current position is the selected one
-		if(_Board->Position.iX == _CurSelected->iX && _Board->Position.iY == _CurSelected->iY) 
+		if(_Board->Position.iX == _CursorPosition->iX && _Board->Position.iY == _CursorPosition->iY) 
 		{
 			// color it red
 			setConsoleTextColor(Red);
