@@ -121,15 +121,6 @@ int initGameBoard(Field_t* _Board, size_t _iRows, size_t _iCols)
 	// rows and columns
 	size_t i = 0; 
 	size_t j = 0;
-	char col_label = 'a';
-	
-	//Display Top-Line
-	for(j = 0; j < _iCols; ++j)
-	{
-		_Board->Position.iX = i;
-		_Board->Position.iY = j;
-		_Board->Value = col_label+col;
-	}
 
 	for(i = 0; i < _iRows; ++i)
 	{
