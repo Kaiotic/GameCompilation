@@ -1,4 +1,4 @@
-# Do *not* modify Code online #
+# Each time you edit code online god kills a member of the <a href="http://wallpaper-million.com/Wallpapers/f/Cats/Itteh-Bitteh-Kitteh-Committeh-wallpaper_7205.jpg">Itteh-Bitteh-Kitteh-Committeh</a> #
 
 # Error Logging #
 
