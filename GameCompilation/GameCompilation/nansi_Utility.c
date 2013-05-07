@@ -19,6 +19,15 @@ void printGameBoard(Field_t* _Board, Vec2ds16_t* _Offset, Vec2ds16_t* _CurSelect
 
 	for(i = 0; i < _iSize; ++i)
 	{
+		
+		if(!_CurSelected)
+		{
+			_CurSelected = (Vec2ds16_t*)malloc(sizeof(Vec2ds16_t));
+
+			_CurSelected->iX = 0;
+			_CurSelected->iY = 0;
+		}
+
 		// if the current position is the selected one
 		if(_Board->Position.iX == _CurSelected->iX && _Board->Position.iY == _CurSelected->iY) 
 		{
