@@ -140,23 +140,20 @@ int initGameBoard(Field_t* _Board, size_t _iRows, size_t _iCols)
 	return TRUE;
 }
 /*****************************************************************************
-int initBoardLabel(Field_t* _Board, size_t _iRows, size_t _iCols)
+void printBoardLabels(size_t _iRows, size_t _iCols)
 	Description:
-		Initializes the Board Labels
+		Prints the board's labels
 	Parameters:
-		Field_t* _Board : The Board to initialize.
 		size_t _iRows : The number of rows.
 		size_t _iCols : The number of cols.
-	Returns:
-		int: TRUE if everything went well, FALSE if not.
+	Returns: -
 *****************************************************************************/
-int initBoardLabel(Field_t* _Board, size_t _iRows, size_t _iCols)
+void printBoardLabels(size_t _iRows, size_t _iCols)
 {
 	size_t rows = 0;
 	size_t cols = 0;
-	char colLabel = 'a';
-	
-	return TRUE;
+	Field_t* boardLabels = (Field_t*)calloc(1, sizeof(Field_t));
+	char colLabel = 'A';
 }
 
 /*****************************************************************************
