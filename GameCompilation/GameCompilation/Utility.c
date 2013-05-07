@@ -155,6 +155,8 @@ int initBoardLabel(Field_t* _Board, size_t _iRows, size_t _iCols)
 	size_t rows = 0;
 	size_t cols = 0;
 	char colLabel = 'a';
+	
+	return TRUE;
 }
 
 /*****************************************************************************
