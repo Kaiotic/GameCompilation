@@ -1,4 +1,5 @@
 #include "nansi_Utility.h"
+#include <Windows.h>
 
 const static float g_RowMultiplier = 3;
 const static float g_ColMultiplier = 1.5;
@@ -20,32 +21,25 @@ void printGameBoard(Field_t* _Board, const Vec2ds16_t* _Offset, Vec2ds16_t* _Cur
 
 	for(i = 0; i < _iSize; ++i)
 	{
-		// check if pointer is null
-		if(!_CursorPosition)
-		{
-			// allocate memory
-			_CursorPosition = (Vec2ds16_t*)malloc(sizeof(Vec2ds16_t));
-
-			// default to [0,0]
-			_CursorPosition->iX = 0;
-			_CursorPosition->iY = 0;
-		}
-
-		// if the current position is the selected one
-		if(_Board->Position.iX == _CursorPosition->iX && _Board->Position.iY == _CursorPosition->iY) 
+		// if there is a selection and the selection equals the boards position OR
+		// if there is no selection and the boards position is [0,0]
+		if((_CursorPosition && _Board->Position.iX == _CursorPosition->iX && _Board->Position.iY == _CursorPosition->iY)
+			|| !_CursorPosition && _Board->Position.iX == 0 && _Board->Position.iY == 0)
 		{
 			// color it red
 			setConsoleTextColor(Red);
 		}
 		else if(_Selected && _Selected->iX != -1 && _Selected->iY != -1 && _Board->Position.iX == _Selected->iX && _Board->Position.iY == _Selected->iY) 
 		{
+			// color it blue
 			setConsoleTextColor(Blue);
 		}
 		else 
 		{
-			// default white
-			setConsoleTextColor(White);
+			// default gray
+			setConsoleTextColor(Gray);
 		}
+		
 
 		// set coordinates
 		pos.X = (short)(_Board->Position.iX + g_RowMultiplier) * _Offset->iX;
@@ -137,4 +131,21 @@ void setConsoleBackgroundColor(int _iColor)
 
 	// change background color
 	SetConsoleTextAttribute(hOutput, (_iColor << 4));
+}
+
+void setConsoleSize(int _iWidth, int _iHeight)
+{
+	HANDLE hOutput = GetStdHandle(STD_OUTPUT_HANDLE);
+	SMALL_RECT window = { 0, 0, _iWidth, _iHeight };
+	COORD buffer = { _iWidth + 1, _iHeight + 1 };
+	DWORD err;
+
+	if(!SetConsoleScreenBufferSize(hOutput, buffer))
+	{
+		err = GetLastError();
+	}
+	if(!SetConsoleWindowInfo(hOutput, TRUE, &window))
+	{
+		err = GetLastError();
+	}
 }

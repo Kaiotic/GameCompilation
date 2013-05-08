@@ -1,4 +1,5 @@
 #include "stdheader.h"
+#include "nansi_Utility.h"
 #include "Application.h"
 #include "LoginRegister.h"
 
@@ -8,6 +9,9 @@ int main()
 {
 	int iChoice = 0;
 
+	// size console window to 100x40
+	setConsoleSize(100, 40);
+	
 	// LogIn / Register Menu
 	showStartScreen();
 
