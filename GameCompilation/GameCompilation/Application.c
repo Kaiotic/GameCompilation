@@ -1,5 +1,8 @@
 #include "Application.h"
 #include "stdheader.h"
+#include <string.h>
+
+void showHelp(void);
 
 /*****************************************************************************
 int startApplication(void)
@@ -30,6 +33,9 @@ int startApplication(void)
 	case '4':
 		startBridges();
 		break;
+	case '5':
+		showHelp();
+		break;
 	case 'x':
 	case 'X':
 		// quit application
@@ -58,5 +64,17 @@ void printMenu(void)
 	printf("\n\t(2) Reversi");
 	printf("\n\t(3) Checkers");
 	printf("\n\t(4) Bridges");
+	printf("\n\t(5) Help");
 	printf("\n\t(X) Quit");
 }
+
+void showHelp(void)
+{
+	system("CLS");
+
+	printf("## To Be Implemented ##\n\n");
+
+	system("PAUSE");	
+}
+
+	

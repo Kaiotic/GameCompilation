@@ -181,6 +181,7 @@ int setConsoleTitle(const char* _sTitle)
 		return FALSE;
 	}
 
+	// everything went well
 	return TRUE;
 }
 
@@ -197,5 +198,5 @@ void showError(const char* _sTitle, const char* _sMessage)
 {
 	HWND hWnd = GetConsoleWindow(); // handle window
 
-	MessageBox(hWnd, _sMessage, _sTitle, MB_ICONERROR); // messagebox popup
+	MessageBox(hWnd, _sMessage, _sTitle, MB_ICONERROR); // message box pop up
 }

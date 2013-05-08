@@ -74,13 +74,16 @@ int initConsole(void)
 {
 	if(!setConsoleSize(100, 40))
 	{
+		// console size could not be set
 		return FALSE;
 	}
 
 	if(!setConsoleTitle("Game Compilation"))
 	{
+		// console title could not be set
 		return FALSE;
 	}
 
+	// everything went well
 	return TRUE;
 }
