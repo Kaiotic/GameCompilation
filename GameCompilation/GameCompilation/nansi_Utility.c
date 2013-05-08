@@ -1,5 +1,8 @@
 #include "nansi_Utility.h"
 
+const static float g_RowMultiplier = 3;
+const static float g_ColMultiplier = 1.5;
+
 /*****************************************************************************
 void printGameBoard(Field_t* _Board, size_t _iSize)
 	Description :
@@ -14,10 +17,6 @@ void printGameBoard(Field_t* _Board, const Vec2ds16_t* _Offset, Vec2ds16_t* _Cur
 	size_t i = 0;
 	COORD pos; // console coordinates
 	HANDLE hOutput = GetStdHandle(STD_OUTPUT_HANDLE); // console handle
-
-	//system("CLS");
-
-	
 
 	for(i = 0; i < _iSize; ++i)
 	{
@@ -49,8 +48,8 @@ void printGameBoard(Field_t* _Board, const Vec2ds16_t* _Offset, Vec2ds16_t* _Cur
 		}
 
 		// set coordinates
-		pos.X = (_Board->Position.iX + 3) * _Offset->iX;
-		pos.Y = (_Board->Position.iY + 1.5) * _Offset->iY;
+		pos.X = (short)(_Board->Position.iX + g_RowMultiplier) * _Offset->iX;
+		pos.Y = (short)(_Board->Position.iY + g_ColMultiplier) * _Offset->iY;
 
 		// move cursor to position
 		SetConsoleCursorPosition(hOutput, pos);
@@ -60,6 +59,51 @@ void printGameBoard(Field_t* _Board, const Vec2ds16_t* _Offset, Vec2ds16_t* _Cur
 
 		// move pointer
 		++_Board;
+	}
+}
+
+/*****************************************************************************
+void printBoardLabels(size_t _iRows, size_t _iCols)
+	Description:
+		Prints the board's labels
+	Parameters:
+		size_t _iRows : The number of rows.
+		size_t _iCols : The number of cols.
+	Returns: -
+*****************************************************************************/
+void printBoardLabels(size_t _iRows, size_t _iCols)
+{
+	size_t i = 0;
+	COORD pos; // console coordinates
+	HANDLE hOutput = GetStdHandle(STD_OUTPUT_HANDLE); // console handle
+	char colLabel = 'A'; // start-character
+	Vec2ds16_t offset = { 2, 2 };
+
+	// Add labels to boardLabels
+	for(i = 0; i < _iRows ; ++i)
+	{
+		// set coordinates
+		pos.X = (short)(i + g_RowMultiplier) * offset.iX;
+		pos.Y = 0;
+
+		// move cursor to position
+		SetConsoleCursorPosition(hOutput, pos);
+
+		// print value
+		printf("%c", (colLabel + i));
+	}
+
+	for(i = 0; i < _iCols; ++i) 
+	{
+		// set coordinates
+		pos.X = 0;
+		pos.Y = (short)(i + g_ColMultiplier) * offset.iY;
+
+		// move cursor to position
+		SetConsoleCursorPosition(hOutput, pos);
+
+		// print value
+		printf("%i", i + 1);
 	}
 }
 

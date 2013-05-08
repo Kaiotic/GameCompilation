@@ -122,9 +122,9 @@ int initGameBoard(Field_t* _Board, size_t _iRows, size_t _iCols)
 	size_t i = 0; 
 	size_t j = 0;
 
-	for(i = 0; i < _iRows; ++i)
+	for(j = 0; i < _iRows; ++j)
 	{
-		for(j = 0; j < _iCols; ++j)
+		for(i = 0; j < _iCols; ++i)
 		{
 			// initialize board with offset
 			_Board->Position.iX = i;
@@ -138,36 +138,6 @@ int initGameBoard(Field_t* _Board, size_t _iRows, size_t _iCols)
 
 	// everything went well
 	return TRUE;
-}
-/*****************************************************************************
-void printBoardLabels(size_t _iRows, size_t _iCols)
-	Description:
-		Prints the board's labels
-	Parameters:
-		size_t _iRows : The number of rows.
-		size_t _iCols : The number of cols.
-	Returns: -
-*****************************************************************************/
-void printBoardLabels(size_t _iRows, size_t _iCols)
-{
-	size_t rows = 0;
-	size_t cols = 0;
-	Field_t* boardLabels = (Field_t*)calloc(1, sizeof(Field_t));
-	char colLabel = 'A';
-
-	//Display Letters
-	printf("     ");
-	for(cols = 0 ; cols<_iCols ;cols++)
-	{
-		printf(" %c", colLabel+cols); /* Display the top line */
-	}
-	printf("\n");
-
-	//Display Numbers
-	for(rows = 0 ; rows<_iRows ; rows++)
-	{
-		printf("\n\n%2d|",rows + 1);
-	}
 }
 
 /*****************************************************************************
