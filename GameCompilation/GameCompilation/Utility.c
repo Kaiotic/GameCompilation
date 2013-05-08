@@ -122,9 +122,9 @@ int initGameBoard(Field_t* _Board, size_t _iRows, size_t _iCols)
 	size_t i = 0; 
 	size_t j = 0;
 
-	for(j = 0; i < _iRows; ++j)
+	for(j = 0; j < _iRows; ++j)
 	{
-		for(i = 0; j < _iCols; ++i)
+		for(i = 0; i < _iCols; ++i)
 		{
 			// initialize board with offset
 			_Board->Position.iX = i;
