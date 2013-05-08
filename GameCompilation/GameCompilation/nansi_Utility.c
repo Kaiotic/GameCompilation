@@ -73,13 +73,12 @@ void printBoardLabels(size_t _iRows, size_t _iCols)
 	char colLabel = 'A'; // start-character
 	Vec2ds16_t offset = { 2, 2 };
 
-	// Add labels to boardLabels
+	pos.Y = 0; // letters on x-axis
 	for(i = 0; i < _iRows ; ++i)
 	{
 		// set coordinates
 		pos.X = (short)(i + g_RowMultiplier) * offset.iX;
-		pos.Y = 0;
-
+		
 		// move cursor to position
 		SetConsoleCursorPosition(hOutput, pos);
 
@@ -87,10 +86,10 @@ void printBoardLabels(size_t _iRows, size_t _iCols)
 		printf("%c", (colLabel + i));
 	}
 
+	pos.X = 0; // numbers on y-axis
 	for(i = 0; i < _iCols; ++i) 
 	{
 		// set coordinates
-		pos.X = 0;
 		pos.Y = (short)(i + g_ColMultiplier) * offset.iY;
 
 		// move cursor to position
