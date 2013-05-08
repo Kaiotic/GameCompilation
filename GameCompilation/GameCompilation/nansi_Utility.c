@@ -141,15 +141,61 @@ void setConsoleSize(int _iWidth, int _iHeight)
 		int _iHeight : The new console height.
 	Returns: -
 *****************************************************************************/
-void setConsoleSize(int _iWidth, int _iHeight)
+int setConsoleSize(int _iWidth, int _iHeight)
 {
 	HANDLE hOutput = GetStdHandle(STD_OUTPUT_HANDLE); // console handle
 	SMALL_RECT window = { 0, 0, _iWidth, _iHeight }; // window size
 	COORD buffer = { _iWidth + 1, _iHeight + 1 }; // screen buffer (must be greater than screen size)
 
 	// set the screen buffer
-	SetConsoleScreenBufferSize(hOutput, buffer);
+	if(!SetConsoleScreenBufferSize(hOutput, buffer))
+	{
+		return FALSE;
+	}
 
 	// set the actual size
-	SetConsoleWindowInfo(hOutput, TRUE, &window);
+	if(!SetConsoleWindowInfo(hOutput, TRUE, &window))
+	{
+		return FALSE;
+	}
+
+	return TRUE;
+}
+
+/*****************************************************************************
+int setConsoleTitle(const char* _sTitle)
+    Description :
+		Sets the console title to the given string.
+    Parameters  :
+		const char* _sTitle: The new console title.
+    Returns     : 
+		TRUE, if title was set correctly.
+		FALSE, if not.
+*****************************************************************************/
+int setConsoleTitle(const char* _sTitle)
+{
+	HANDLE hOutput = GetStdHandle(STD_OUTPUT_HANDLE); // console handle
+
+	if(!SetConsoleTitle(_sTitle))
+	{
+		return FALSE;
+	}
+
+	return TRUE;
+}
+
+/*****************************************************************************
+void showError(const char* _sTitle, const char* _sMessage)
+    Description :
+		Pops up a MessageBox with the given Title and Message.
+    Parameters  :
+		const char* _sTitle: The MessageBox title.
+		const char* _sMessage: The MessageBox message.
+    Returns     : -
+*****************************************************************************/
+void showError(const char* _sTitle, const char* _sMessage)
+{
+	HWND hWnd = GetConsoleWindow(); // handle window
+
+	MessageBox(hWnd, _sMessage, _sTitle, MB_ICONERROR); // messagebox popup
 }

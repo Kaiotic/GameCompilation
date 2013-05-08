@@ -20,6 +20,9 @@ void startReversi(void)
 	g_Board = (Field_t*)calloc(iBoardSize, sizeof(Field_t));
 	if(!g_Board)
 	{
+		// show error box
+		showError("Memory Allocation Failed", "Memory could not be allocated for Reversi.");
+
 		// memory could not be allocated
 		return;
 	}	

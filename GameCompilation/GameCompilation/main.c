@@ -4,14 +4,21 @@
 #include "LoginRegister.h"
 
 void showStartScreen(void);
+int initConsole(void);
 
 int main()
 {
 	int iChoice = 0;
 
 	// size console window to 100x40
-	setConsoleSize(100, 40);
-	
+	if(!initConsole())
+	{
+		// show error box
+		showError("Error", "Console Window could not be initialized.\nExiting program.");
+		
+		return EXIT_FAILURE;
+	}	
+
 	// LogIn / Register Menu
 	showStartScreen();
 
@@ -52,4 +59,28 @@ void showStartScreen(void)
 	printf("\t### Game Compilation ###");
 	printf("\n\n\t(1) Login");
 	printf("\n\t(2) Register\n");
+}
+
+/*****************************************************************************
+int initConsole(void)
+    Description :
+		Initializes the console window.
+    Parameters  : -
+    Returns     :
+		TRUE, if everything initialized correctly.
+		FALSE, if not.
+*****************************************************************************/
+int initConsole(void) 
+{
+	if(!setConsoleSize(100, 40))
+	{
+		return FALSE;
+	}
+
+	if(!setConsoleTitle("Game Compilation"))
+	{
+		return FALSE;
+	}
+
+	return TRUE;
 }
