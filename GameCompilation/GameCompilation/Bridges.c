@@ -29,8 +29,8 @@ void startBridges(void)
 	initGameBoard(g_Board, g_Fields, g_Fields);
 
 	// print for the first time
-	system("cls");
-	printBoardLabels(g_Fields,g_Fields);
+	system("CLS");
+	printBoardLabels(g_Fields, g_Fields);
 	printGameBoard(g_Board, &g_Offset, NULL, NULL, iBoardSize);
 
 	// game loop
@@ -53,9 +53,9 @@ int updateBridges(size_t _iBoardSize)
 {
 	static Vec2ds16_t cursorPosition = { 0, 0 }; // last cursor coordinates
 	static Vec2ds16_t selectedToken = { -1, -1 }; // the selected game token
-	
 	short iInput = 0;
 
+	// user input
 	iInput = getKeyCode();
 
 	switch(iInput)
@@ -96,6 +96,7 @@ int updateBridges(size_t _iBoardSize)
 		return FALSE;
 	}
 
+	// print board
 	printGameBoard(g_Board, &g_Offset, &cursorPosition, &selectedToken, _iBoardSize);
 
 	return TRUE;
