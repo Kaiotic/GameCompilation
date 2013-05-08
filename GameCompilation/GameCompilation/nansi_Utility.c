@@ -133,19 +133,24 @@ void setConsoleBackgroundColor(int _iColor)
 	SetConsoleTextAttribute(hOutput, (_iColor << 4));
 }
 
+/*****************************************************************************
+void setConsoleSize(int _iWidth, int _iHeight)
+	Description:
+		Resizes the ConsoleWindow.
+	Parameters:
+		int _iWidth : The new console width.
+		int _iHeight : The new console height.
+	Returns: -
+*****************************************************************************/
 void setConsoleSize(int _iWidth, int _iHeight)
 {
-	HANDLE hOutput = GetStdHandle(STD_OUTPUT_HANDLE);
-	SMALL_RECT window = { 0, 0, _iWidth, _iHeight };
-	COORD buffer = { _iWidth + 1, _iHeight + 1 };
-	DWORD err;
+	HANDLE hOutput = GetStdHandle(STD_OUTPUT_HANDLE); // console handle
+	SMALL_RECT window = { 0, 0, _iWidth, _iHeight }; // window size
+	COORD buffer = { _iWidth + 1, _iHeight + 1 }; // screen buffer (must be greater than screen size)
 
-	if(!SetConsoleScreenBufferSize(hOutput, buffer))
-	{
-		err = GetLastError();
-	}
-	if(!SetConsoleWindowInfo(hOutput, TRUE, &window))
-	{
-		err = GetLastError();
-	}
+	// set the screen buffer
+	SetConsoleScreenBufferSize(hOutput, buffer);
+
+	// set the actual size
+	SetConsoleWindowInfo(hOutput, TRUE, &window);
 }
