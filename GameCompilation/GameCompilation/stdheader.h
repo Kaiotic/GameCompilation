@@ -9,6 +9,7 @@
 #include "nansi_Utility.h"
 #include "Vec2ds16.h"
 #include "Field.h"
+#include "Boolean.h"
 
 // Games
 #include "ConnectFour.h"

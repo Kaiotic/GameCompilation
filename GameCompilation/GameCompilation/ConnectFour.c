@@ -56,6 +56,7 @@ int updateConnectFour(size_t _iBoardSize)
 {
 	static Vec2ds16_t cursorPosition = { 0, 0 }; // last cursor coordinates
 	short iInput = 0;
+	Vec2ds16_t dropPosition;
 
 	// user input
 	iInput = getKeyCode();
@@ -63,7 +64,7 @@ int updateConnectFour(size_t _iBoardSize)
 	switch(iInput)
 	{
 	case 13:
-		// no need to remember position
+		dropPosition = cursorPosition;
 		break;
 	case 256 + 75: // ARROW LEFT
 		if(cursorPosition.iX > 0)
@@ -72,7 +73,7 @@ int updateConnectFour(size_t _iBoardSize)
 		}
 		break;
 	case 256 + 77: // ARROW RIGHT
-		if((unsigned short)cursorPosition.iX < g_iRows - 1)
+		if((unsigned short)cursorPosition.iX < g_iCols - 1)
 		{
 			++cursorPosition.iX;
 		}

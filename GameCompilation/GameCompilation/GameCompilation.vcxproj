@@ -81,6 +81,7 @@
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="Basic.h" />
+    <ClInclude Include="Boolean.h" />
     <ClInclude Include="Bridges.h" />
     <ClInclude Include="Checkers.h" />
     <ClInclude Include="ConnectFour.h" />
@@ -90,6 +91,7 @@
     <ClInclude Include="nansi_Utility.h" />
     <ClInclude Include="Reversi.h" />
     <ClInclude Include="stdheader.h" />
+    <ClInclude Include="TextColor.h" />
     <ClInclude Include="Utility.h" />
     <ClInclude Include="Vec2ds16.h" />
   </ItemGroup>

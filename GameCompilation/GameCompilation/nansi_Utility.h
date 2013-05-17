@@ -3,26 +3,7 @@
 
 #include "Basic.h"
 #include "Field.h"
-
-enum TextColor
-{
-	Black = 0,
-	DarkBlue = 1,
-	DarkGreen = 2,
-	DarkTeal = 3,
-	DarkRed = 4,
-	DarkPink = 5,
-	DarkYellow = 6,
-	Gray = 7,
-	Darkgray = 8,
-	Blue = 9,
-	Green = 10,
-	Teal = 11,
-	Red = 12,
-	Pink = 13,
-	Yellow = 14,
-	White = 15
-};
+#include "TextColor.h"
 
 void printBoardLabels(size_t _iRows, size_t _iCols);
 void printGameBoard(Field_t* _Board, const Vec2ds16_t* _Offset, Vec2ds16_t* _CursorPosition, Vec2ds16_t* _Selected, size_t _iSize);

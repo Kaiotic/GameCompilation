@@ -57,7 +57,7 @@ int updateBridges(size_t _iBoardSize)
 	static Vec2ds16_t cursorPosition = { 0, 0 }; // last cursor coordinates
 	static Vec2ds16_t selectedToken = { -1, -1 }; // the selected game token
 	short iInput = 0;
-
+	
 	// user input
 	iInput = getKeyCode();
 

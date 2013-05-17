@@ -27,19 +27,17 @@ void printGameBoard(Field_t* _Board, const Vec2ds16_t* _Offset, Vec2ds16_t* _Cur
 			|| !_CursorPosition && _Board->Position.iX == 0 && _Board->Position.iY == 0)
 		{
 			// color it red
-			setConsoleTextColor(Red);
+			setConsoleBackgroundColor(Red);
 		}
 		else if(_Selected && _Selected->iX != -1 && _Selected->iY != -1 && _Board->Position.iX == _Selected->iX && _Board->Position.iY == _Selected->iY) 
 		{
 			// color it blue
-			setConsoleTextColor(Blue);
+			setConsoleBackgroundColor(Blue);
 		}
-		else 
+		else
 		{
-			// default gray
 			setConsoleTextColor(Gray);
 		}
-		
 
 		// set coordinates
 		pos.X = (short)(_Board->Position.iX + g_RowMultiplier) * _Offset->iX;

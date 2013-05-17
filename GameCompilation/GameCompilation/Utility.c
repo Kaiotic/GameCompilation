@@ -1,4 +1,5 @@
 #include "Utility.h"
+#include "nansi_Utility.h"
 #include <conio.h>
 #include <Windows.h>
 
@@ -121,6 +122,7 @@ int initGameBoard(Field_t* _Board, size_t _iRows, size_t _iCols)
 	// rows and columns
 	size_t i = 0; 
 	size_t j = 0;
+	int ch = 0;
 
 	for(j = 0; j < _iRows; ++j)
 	{
@@ -129,8 +131,7 @@ int initGameBoard(Field_t* _Board, size_t _iRows, size_t _iCols)
 			// initialize board with offset
 			_Board->Position.iX = i;
 			_Board->Position.iY = j;
-			_Board->Value = 'x';
-
+			
 			// move pointer
 			++_Board;
 		}
@@ -138,6 +139,34 @@ int initGameBoard(Field_t* _Board, size_t _iRows, size_t _iCols)
 
 	// everything went well
 	return TRUE;
+}
+
+/*****************************************************************************
+int getIndexByPosition(Field_t* _Board, size_t _iSize, Vec2ds16_t* _Position)
+	Description :
+		Finds an Element by a given Position in the given board.
+	Parameters : 
+		Field_t* _Board: The board to search through.
+		size_t _iSize: The size of the board.
+		Vec2ds16_t* _Position: The position of the element to be found.
+	Returns : 
+		int: The index of the element inside the given Board or -1.
+*****************************************************************************/
+int getIndexByPosition(Field_t* _Board, size_t _iSize, Vec2ds16_t* _Position)
+{
+	size_t i = 0;
+
+	for(i = 0; i < _iSize; ++i)
+	{
+		if(_Board[i].Position.iX == _Position->iX && _Board[i].Position.iY == _Position->iY)
+		{
+			// found the right element, return index
+			return i;
+		}
+	}
+
+	// not found
+	return -1;
 }
 
 /*****************************************************************************
@@ -156,4 +185,3 @@ void cleanUpGameBoard(Field_t* _Board)
 		_Board = NULL;
 	}
 }
-
