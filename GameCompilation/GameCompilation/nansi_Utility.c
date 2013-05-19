@@ -13,45 +13,42 @@ void printGameBoard(Field_t* _Board, size_t _iSize)
 		size_t _iSize: The size of the board.
 	Returns : -
 *****************************************************************************/
-void printGameBoard(Field_t* _Board, const Vec2ds16_t* _Offset, Vec2ds16_t* _CursorPosition, Vec2ds16_t* _Selected, size_t _iSize)
+void printGameBoard(Field_t** _Board, const Vec2ds16_t* _Offset, Vec2ds16_t* _CursorPosition, Vec2ds16_t* _Selected, size_t _iRows, size_t _iCols)
 {
 	size_t i = 0;
+	size_t j = 0;
 	COORD pos; // console coordinates
 	HANDLE hOutput = GetStdHandle(STD_OUTPUT_HANDLE); // console handle
 
-	for(i = 0; i < _iSize; ++i)
+	for(j = 0; j < _iRows; ++j)
 	{
-		// if there is a selection and the selection equals the boards position OR
-		// if there is no selection and the boards position is [0,0]
-		if((_CursorPosition && _Board->Position.iX == _CursorPosition->iX && _Board->Position.iY == _CursorPosition->iY) ||
-			(!_CursorPosition && _Board->Position.iX == 0 && _Board->Position.iY == 0))
-		{
-			// color it red
-			setConsoleBackgroundColor(Red);
-		}
-		else if(_Selected && _Selected->iX != -1 && _Selected->iY != -1 && _Board->Position.iX == _Selected->iX && _Board->Position.iY == _Selected->iY) 
-		{
-			// color it blue
-			setConsoleBackgroundColor(Blue);
-		}
-		else
-		{
-			setConsoleTextColor(Gray);
-		}
+		pos.Y = (short)(j + g_ColMultiplier) * _Offset->iY;
 
-		// set coordinates
-		pos.X = (short)(_Board->Position.iX + g_RowMultiplier) * _Offset->iX;
-		pos.Y = (short)(_Board->Position.iY + g_ColMultiplier) * _Offset->iY;
+		for(i = 0; i < _iCols; ++i)
+		{
+			pos.X = (short)(i + g_RowMultiplier) * _Offset->iX;
 
-		// move cursor to position
-		SetConsoleCursorPosition(hOutput, pos);
-		
-		// print value
-		printf("%c", _Board->Value);
+			if((_CursorPosition && _CursorPosition->iX == i && _CursorPosition->iY == j) ||
+				(!_CursorPosition && i == 0 && j == 0))
+			{
+				setConsoleBackgroundColor(Red);
+			}
+			else if(_Selected && _Selected->iX != -1 && _Selected->iY != -1 && _Selected->iX == i && _Selected->iY == j)
+			{
+				setConsoleBackgroundColor(Blue);
+			}
+			else
+			{
+				setConsoleTextColor(_Board[i][j].Color);
+			}
 
-		// move pointer
-		++_Board;
+			SetConsoleCursorPosition(hOutput, pos);
+
+			printf("%c", _Board[i][j].Value);
+		}
 	}
+
+	printf("\n\n\n\n");
 }
 
 /*****************************************************************************

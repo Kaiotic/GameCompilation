@@ -110,30 +110,26 @@ int initGameBoard(Field_t* _Board, size_t _iRow, size_t _iCol)
 	Description :
 		Initializes the GameBoard.
 	Parameters : 
-		Field_t* _Board: The board to initialize.
+		Field_t** _Board: The board to initialize.
 		Vec2df32_t* _Offset: The positional offset of the board.
 		size_t _iRow: The number of rows.
 		size_t _iCol: The number of columns.
 	Returns :
 		int: TRUE if everything went well, FALSE if not.
 *****************************************************************************/
-int initGameBoard(Field_t* _Board, size_t _iRows, size_t _iCols)
+int initGameBoard(Field_t** _Board, size_t _iRows, size_t _iCols)
 {
 	// rows and columns
 	size_t i = 0; 
 	size_t j = 0;
-	int ch = 0;
 
-	for(j = 0; j < _iRows; ++j)
+	for(i = 0; i < _iCols; ++i)
 	{
-		for(i = 0; i < _iCols; ++i)
+		for(j = 0; j < _iRows; ++j)
 		{
 			// initialize board with offset
-			_Board->Position.iX = i;
-			_Board->Position.iY = j;
-			
-			// move pointer
-			++_Board;
+			_Board[i][j].Value = '\0';
+			_Board[i][j].Color = Gray;
 		}
 	}
 
@@ -142,45 +138,24 @@ int initGameBoard(Field_t* _Board, size_t _iRows, size_t _iCols)
 }
 
 /*****************************************************************************
-int getIndexByPosition(Field_t* _Board, size_t _iSize, Vec2ds16_t* _Position)
-	Description :
-		Finds an Element by a given Position in the given board.
-	Parameters : 
-		Field_t* _Board: The board to search through.
-		size_t _iSize: The size of the board.
-		Vec2ds16_t* _Position: The position of the element to be found.
-	Returns : 
-		int: The index of the element inside the given Board or -1.
-*****************************************************************************/
-int getIndexByPosition(Field_t* _Board, size_t _iSize, Vec2ds16_t* _Position)
-{
-	size_t i = 0;
-
-	for(i = 0; i < _iSize; ++i)
-	{
-		if(_Board[i].Position.iX == _Position->iX && _Board[i].Position.iY == _Position->iY)
-		{
-			// found the right element, return index
-			return i;
-		}
-	}
-
-	// not found
-	return -1;
-}
-
-/*****************************************************************************
 void cleanUpGameBoard(Field_t* _Board)
 	Description :
 		Frees resources.
 	Parameters : 
-		Field_t* _Board: The board to clean up.
+		Field_t** _Board: The board to clean up.
 	Returns : -
 *****************************************************************************/
-void cleanUpGameBoard(Field_t* _Board)
+void cleanUpGameBoard(Field_t** _Board, size_t _iRows, size_t _iCols)
 {
+	size_t i = 0;
+
 	if(_Board)
 	{
+		for(i = 0; i < _iRows; ++i)
+		{
+			free(_Board[i]);
+		}
+
 		free(_Board);
 		_Board = NULL;
 	}

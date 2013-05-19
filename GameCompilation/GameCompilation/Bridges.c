@@ -29,18 +29,18 @@ void startBridges(void)
 	}
 	
 	// initialize the board
-	initGameBoard(g_Board, g_Fields, g_Fields);
+	//initGameBoard(g_Board, g_Fields, g_Fields);
 
 	// print for the first time
 	system("CLS");
 	printBoardLabels(g_Fields, g_Fields);
-	printGameBoard(g_Board, &g_Offset, NULL, NULL, iBoardSize);
+	//printGameBoard(g_Board, &g_Offset, NULL, NULL, iBoardSize);
 
 	// game loop
 	while(updateBridges(iBoardSize));
 
 	// free the boards memory
-	cleanUpGameBoard(g_Board);
+	//cleanUpGameBoard(g_Board);
 }
 
 /*****************************************************************************
@@ -100,7 +100,7 @@ int updateBridges(size_t _iBoardSize)
 	}
 
 	// print board
-	printGameBoard(g_Board, &g_Offset, &cursorPosition, &selectedToken, _iBoardSize);
+	//printGameBoard(g_Board, &g_Offset, &cursorPosition, &selectedToken, _iBoardSize);
 
 	return TRUE;
 }

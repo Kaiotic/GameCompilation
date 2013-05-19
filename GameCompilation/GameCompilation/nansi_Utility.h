@@ -6,7 +6,7 @@
 #include "TextColor.h"
 
 void printBoardLabels(size_t _iRows, size_t _iCols);
-void printGameBoard(Field_t* _Board, const Vec2ds16_t* _Offset, Vec2ds16_t* _CursorPosition, Vec2ds16_t* _Selected, size_t _iSize);
+void printGameBoard(Field_t** _Board, const Vec2ds16_t* _Offset, Vec2ds16_t* _CursorPosition, Vec2ds16_t* _Selected, size_t _iRows, size_t _iCols);
 
 void setConsoleTextColor(int _iColor);
 void setConsoleBackgroundColor(int _iColor);
