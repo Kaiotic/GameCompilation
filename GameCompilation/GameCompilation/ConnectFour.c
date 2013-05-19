@@ -3,7 +3,7 @@
 
 const static size_t g_iRows = 6;
 const static size_t g_iCols = 7;
-static Field_t* g_Board;
+Field_t* g_ConnectFourBoard;
 const static Vec2ds16_t g_Offset = { 2, 2 };
 
 /*****************************************************************************
@@ -18,8 +18,8 @@ void startConnectFour(void)
 	const size_t iBoardSize = g_iRows * g_iCols;
 
 	// allocate memory
-	g_Board = (Field_t*)calloc(iBoardSize, sizeof(Field_t));
-	if(!g_Board)
+	g_ConnectFourBoard = (Field_t*)calloc(iBoardSize, sizeof(Field_t));
+	if(!g_ConnectFourBoard)
 	{
 		// show error box
 		showError("Memory Allocation Failed", "Memory could not be allocated for ConnectFour.");
@@ -29,18 +29,18 @@ void startConnectFour(void)
 	}
 
 	// initialize the board
-	initGameBoard(g_Board, g_iRows, g_iCols);
+	initGameBoard(g_ConnectFourBoard, g_iRows, g_iCols);
 	
 	// print for the first time
 	system("CLS");
 	printBoardLabels(g_iCols, g_iRows);
-	printGameBoard(g_Board, &g_Offset, NULL, NULL, iBoardSize);
+	printGameBoard(g_ConnectFourBoard, &g_Offset, NULL, NULL, iBoardSize);
 
 	// game loop
 	while(updateConnectFour(iBoardSize));
 
 	// free the boards memory
-	cleanUpGameBoard(g_Board);
+	cleanUpGameBoard(g_ConnectFourBoard);
 }
 
 /*****************************************************************************
@@ -56,6 +56,8 @@ int updateConnectFour(size_t _iBoardSize)
 {
 	static Vec2ds16_t cursorPosition = { 0, 0 }; // last cursor coordinates
 	short iInput = 0;
+	size_t iIndex = 0;
+	size_t iNext = 0;
 	Vec2ds16_t dropPosition;
 
 	// user input
@@ -64,7 +66,28 @@ int updateConnectFour(size_t _iBoardSize)
 	switch(iInput)
 	{
 	case 13:
+		// position to drop the token
 		dropPosition = cursorPosition;
+
+		// get element index
+		iIndex = getIndexByPosition(g_ConnectFourBoard, _iBoardSize, &dropPosition);
+
+		// simulate the "falling token" until it hits another one or the ground
+		while(g_ConnectFourBoard[iIndex].Value == '\0' && (unsigned short)dropPosition.iY < g_iRows)
+		{
+			// remember last empty position
+			iNext = iIndex;
+
+			// fall one row
+			++dropPosition.iY;
+
+			// get new index
+			iIndex = getIndexByPosition(g_ConnectFourBoard, _iBoardSize, &dropPosition);
+		}
+
+		// set value on new position to something
+		g_ConnectFourBoard[iNext].Value = 'O';
+
 		break;
 	case 256 + 75: // ARROW LEFT
 		if(cursorPosition.iX > 0)
@@ -87,7 +110,7 @@ int updateConnectFour(size_t _iBoardSize)
 	}
 
 	// print board
-	printGameBoard(g_Board, &g_Offset, &cursorPosition, NULL, _iBoardSize);
+	printGameBoard(g_ConnectFourBoard, &g_Offset, &cursorPosition, NULL, _iBoardSize);
 
 	return TRUE;
 }

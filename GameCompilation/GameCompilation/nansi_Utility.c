@@ -23,8 +23,8 @@ void printGameBoard(Field_t* _Board, const Vec2ds16_t* _Offset, Vec2ds16_t* _Cur
 	{
 		// if there is a selection and the selection equals the boards position OR
 		// if there is no selection and the boards position is [0,0]
-		if((_CursorPosition && _Board->Position.iX == _CursorPosition->iX && _Board->Position.iY == _CursorPosition->iY)
-			|| !_CursorPosition && _Board->Position.iX == 0 && _Board->Position.iY == 0)
+		if((_CursorPosition && _Board->Position.iX == _CursorPosition->iX && _Board->Position.iY == _CursorPosition->iY) ||
+			(!_CursorPosition && _Board->Position.iX == 0 && _Board->Position.iY == 0))
 		{
 			// color it red
 			setConsoleBackgroundColor(Red);
