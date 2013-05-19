@@ -58,15 +58,14 @@ void startConnectFour(void)
 	printWinMessage();
 
 	// free the boards memory
-	cleanUpGameBoard(g_ConnectFourBoard, g_iRows, g_iCols);
+	cleanUpGameBoard(g_ConnectFourBoard, g_iRows);
 }
 
 /*****************************************************************************
 int updateConnectFour(size_t _iBoardSize)
     Description :
 		Updates and prints the GameBoard.
-    Parameters  : 
-		size_t _iBoardSize: The size of the board.
+    Parameters  : -
     Returns     : 
 		TRUE, if everything went well. FALSE, if not.
 *****************************************************************************/

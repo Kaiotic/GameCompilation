@@ -111,9 +111,8 @@ int initGameBoard(Field_t* _Board, size_t _iRow, size_t _iCol)
 		Initializes the GameBoard.
 	Parameters : 
 		Field_t** _Board: The board to initialize.
-		Vec2df32_t* _Offset: The positional offset of the board.
-		size_t _iRow: The number of rows.
-		size_t _iCol: The number of columns.
+		size_t _iRows: The number of rows.
+		size_t _iCols: The number of columns.
 	Returns :
 		int: TRUE if everything went well, FALSE if not.
 *****************************************************************************/
@@ -143,19 +142,22 @@ void cleanUpGameBoard(Field_t* _Board)
 		Frees resources.
 	Parameters : 
 		Field_t** _Board: The board to clean up.
+		size_t _iRows: The number of rows.
 	Returns : -
 *****************************************************************************/
-void cleanUpGameBoard(Field_t** _Board, size_t _iRows, size_t _iCols)
+void cleanUpGameBoard(Field_t** _Board, size_t _iRows)
 {
 	size_t i = 0;
 
 	if(_Board)
 	{
+		// free 2nd dimension
 		for(i = 0; i < _iRows; ++i)
 		{
 			free(_Board[i]);
 		}
 
+		// free board
 		free(_Board);
 		_Board = NULL;
 	}

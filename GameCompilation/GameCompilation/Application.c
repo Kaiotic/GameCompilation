@@ -68,6 +68,13 @@ void printMenu(void)
 	printf("\n\t(X) Quit");
 }
 
+/*****************************************************************************
+void showHelp(void)
+    Description :
+		Prints the help menu to the console.
+    Parameters  : -
+    Returns     : -
+*****************************************************************************/
 void showHelp(void)
 {
 	system("CLS");

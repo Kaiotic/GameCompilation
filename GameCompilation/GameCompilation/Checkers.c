@@ -2,8 +2,8 @@
 #include "stdheader.h"
 
 const static size_t g_Fields = 8;
-static Field_t* g_Board;
 const static Vec2ds16_t g_Offset = { 2, 2 };
+Field_t** g_Board;
 
 /*****************************************************************************
 void startCheckers(void)
@@ -15,31 +15,37 @@ void startCheckers(void)
 void startCheckers(void)
 {
 	const size_t iBoardSize = g_Fields * g_Fields;
-	
+	size_t i = 0;
+
 	// allocate memory
-	g_Board = (Field_t*)calloc(iBoardSize, sizeof(Field_t));
+	g_Board = (Field_t**)calloc(g_Fields, sizeof(Field_t));
+	for(i = 0; i < g_Fields; ++i)
+	{
+		g_Board[i] = (Field_t*)calloc(g_Fields, sizeof(Field_t));
+	}
+
 	if(!g_Board)
 	{
 		// show error box
 		showError("Memory Allocation Failed", "Memory could not be allocated for Checkers.");
 
-		// memory could not be allocated
+		// quit
 		return;
 	}
 
 	// initialize the board
-	//initGameBoard(g_Board, g_Fields, g_Fields);
+	initGameBoard(g_Board, g_Fields, g_Fields);
 	
 	// print for the first time
 	system("CLS");
 	printBoardLabels(g_Fields, g_Fields);
-	//printGameBoard(g_Board, &g_Offset, NULL, NULL, iBoardSize);
+	printGameBoard(g_Board, &g_Offset, NULL, NULL, g_Fields, g_Fields);
 
 	// game loop
 	while(updateCheckers(iBoardSize));
 
 	// free the boards memory
-	//cleanUpGameBoard(g_Board);
+	cleanUpGameBoard(g_Board, g_Fields);
 }
 
 /*****************************************************************************
@@ -99,7 +105,7 @@ int updateCheckers(size_t _iBoardSize)
 	}
 
 	// print board
-	//printGameBoard(g_Board, &g_Offset, &cursorPosition, &selectedToken, _iBoardSize);
+	printGameBoard(g_Board, &g_Offset, &cursorPosition, &selectedToken, g_Fields, g_Fields);
 
 	return TRUE;
 }

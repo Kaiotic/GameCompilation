@@ -6,7 +6,7 @@
 void showStartScreen(void);
 int initConsole(void);
 
-int main()
+int main(void)
 {
 	int iChoice = 0;
 

@@ -9,8 +9,12 @@ void printGameBoard(Field_t* _Board, size_t _iSize)
 	Description :
 		Prints the given board to the console.
 	Parameters : 
-		Field_t* _Board: The board to print.
-		size_t _iSize: The size of the board.
+		Field_t** _Board: The board to print.
+		const Vec2ds16_t* _Offset: The positional offset.
+		Vec2ds16_t* _CursorPosition: Current position of the cursor.
+		Vec2ds16_t* _Selected: The last selected element.
+		size_t _iRows: Number of rows.
+		size_t _iCols: Number of columns.
 	Returns : -
 *****************************************************************************/
 void printGameBoard(Field_t** _Board, const Vec2ds16_t* _Offset, Vec2ds16_t* _CursorPosition, Vec2ds16_t* _Selected, size_t _iRows, size_t _iCols)
@@ -23,27 +27,31 @@ void printGameBoard(Field_t** _Board, const Vec2ds16_t* _Offset, Vec2ds16_t* _Cu
 	for(j = 0; j < _iRows; ++j)
 	{
 		pos.Y = (short)(j + g_ColMultiplier) * _Offset->iY;
-
 		for(i = 0; i < _iCols; ++i)
 		{
 			pos.X = (short)(i + g_RowMultiplier) * _Offset->iX;
 
+			// position is selected
 			if((_CursorPosition && _CursorPosition->iX == i && _CursorPosition->iY == j) ||
 				(!_CursorPosition && i == 0 && j == 0))
 			{
 				setConsoleBackgroundColor(Red);
 			}
+			// last selected element
 			else if(_Selected && _Selected->iX != -1 && _Selected->iY != -1 && _Selected->iX == i && _Selected->iY == j)
 			{
 				setConsoleBackgroundColor(Blue);
 			}
+			// default
 			else
 			{
 				setConsoleTextColor(_Board[i][j].Color);
 			}
 
+			// move cursor
 			SetConsoleCursorPosition(hOutput, pos);
 
+			// print value
 			printf("%c", _Board[i][j].Value);
 		}
 	}
