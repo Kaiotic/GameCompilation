@@ -9,8 +9,6 @@ Don't log everything as constant file access will be a huge performance issue at
 # Miscellaneous #
 ### Utility.h ###
 
-Utility.h has an <a href="https://github.com/Tehlyria/GameCompilation/wiki/%5BEnum%5D-boolean">boolean</a>-enum that defines TRUE and FALSE. <br/>
-If you need a boolean somewhere, include Utility.h and use TRUE / FALSE. <br/>
 Utility also contains a method to initialize a game board (init(...)) and a method to cleanUp a game board (cleanUp(...)). <br/>
 init() initializes all X/Y coordinates and its value.
 cleanUp() frees the memory.
@@ -19,10 +17,14 @@ cleanUp() frees the memory.
 
 nansi_Utility.h contains utility methods that are not covered by the ANSI C standard. <br/>
 
+### Boolean.h ###
+
+If you need a boolean somewhere, include Boolean.h and use TRUE / FALSE.
+
 ### Field.h ###
 
 Field.h has a typedef <a href="https://github.com/Tehlyria/GameCompilation/wiki/%5BTypedef%5D-Field_t">Field_t</a>. <br/>
-This holds X/Y coordinates and a character value. <br/>
+This holds a color and a character value. <br/>
 This will be used to represent the game board. <br/>
 
 
