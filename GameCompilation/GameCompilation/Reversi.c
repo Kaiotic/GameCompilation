@@ -14,7 +14,6 @@ void startReversi(void)
 *****************************************************************************/
 void startReversi(void)
 {
-	const size_t iBoardSize = g_Fields * g_Fields;
 	size_t i = 0;
 
 	// allocate memory
@@ -42,7 +41,7 @@ void startReversi(void)
 	printGameBoard(g_Board, &g_Offset, NULL, NULL, g_Fields, g_Fields);
 
 	// game loop
-	while(updateReversi(iBoardSize));
+	while(updateReversi(g_Fields * g_Fields));
 
 	// free the boards memory
 	cleanUpGameBoard(g_Board, g_Fields);

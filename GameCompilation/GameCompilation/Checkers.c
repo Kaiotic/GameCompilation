@@ -14,7 +14,6 @@ void startCheckers(void)
 *****************************************************************************/
 void startCheckers(void)
 {
-	const size_t iBoardSize = g_Fields * g_Fields;
 	size_t i = 0;
 
 	// allocate memory
@@ -42,7 +41,7 @@ void startCheckers(void)
 	printGameBoard(g_Board, &g_Offset, NULL, NULL, g_Fields, g_Fields);
 
 	// game loop
-	while(updateCheckers(iBoardSize));
+	while(updateCheckers(g_Fields * g_Fields));
 
 	// free the boards memory
 	cleanUpGameBoard(g_Board, g_Fields);

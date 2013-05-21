@@ -15,7 +15,6 @@ void startBridges(void)
 *****************************************************************************/
 void startBridges(void)
 {
-	const size_t iBoardSize = g_Fields * g_Fields;
 	size_t i = 0;
 
 	// allocate memory
@@ -43,7 +42,7 @@ void startBridges(void)
 	printGameBoard(g_BridgesBoard, &g_Offset, NULL, NULL, g_Fields, g_Fields);
 
 	// game loop
-	while(updateBridges(iBoardSize));
+	while(updateBridges(g_Fields * g_Fields));
 
 	// free the boards memory
 	cleanUpGameBoard(g_BridgesBoard, g_Fields);
