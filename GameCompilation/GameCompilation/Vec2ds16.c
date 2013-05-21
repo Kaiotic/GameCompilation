@@ -66,23 +66,6 @@ Vec2ds16_t divVec(const Vec2ds16_t* _First, const Vec2ds16_t* _Second)
 }
 
 /*****************************************************************************
-Vec2df32_t normalize(const Vec2df32_t _First)
-	Description :
-		Normalizes the given vector.
-	Parameters : 
-		const Vec2df32_t* _First: First vector. 
-	Returns :
-		Normalized vector.
-*****************************************************************************/
-Vec2ds16_t normalize(const Vec2ds16_t* _First)
-{
-	float fFactor = sqrtf(_First->iX * _First->iX + _First->iY * _First->iY);
-	Vec2ds16_t vec = { (short)(_First->iX / fFactor), (short)(_First->iY / fFactor) };
-
-	return vec;
-}
-
-/*****************************************************************************
 float dotProduct(const Vec2df32_t _First, const Vec2df32_t _Second)
 	Description :
 		Calculates the dot product of the two given vectors.
