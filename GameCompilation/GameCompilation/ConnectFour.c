@@ -18,7 +18,6 @@ void startConnectFour(void)
 *****************************************************************************/
 void startConnectFour(void)
 {
-	const size_t iBoardSize = g_iRows * g_iCols;
 	size_t i = 0;
 
 	// allocate memory
@@ -112,14 +111,7 @@ int updateConnectFour(void)
 			}
 
 			// change player symbol
-			if(g_cPlayerSymbol == 'X')
-			{
-				g_cPlayerSymbol = 'O';
-			}
-			else if(g_cPlayerSymbol == 'O')
-			{
-				g_cPlayerSymbol = 'X';
-			}
+			g_cPlayerSymbol = g_cPlayerSymbol == 'X' ? 'O' : 'X';
 		}
 		break;
 	case 256 + 75: // ARROW LEFT
@@ -212,9 +204,11 @@ int isLine(short _iX, short _iY, short _dirX, short _dirY, char _cVal)
 		iX = _iX + i * _dirX;
 		iY = _iY + i * _dirY;
 
-		// set to max value if coord is out of bounds
-		iX = (iX > g_iRows) ? g_iRows : iX;
-		iY = (iY > g_iCols) ? g_iCols : iY;
+		// FALSE if out of bounds and not a line yet
+		if(iX > g_iRows || iY > g_iCols)
+		{
+			return FALSE;
+		}
 
 		// check if values are equal
 		if(g_ConnectFourBoard[iX][iY].Value != _cVal)
